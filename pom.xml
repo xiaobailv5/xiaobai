@@ -107,8 +107,12 @@
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
             <version>7.6.0</version>
         </dependency>
-
-
+        <!--guava 谷歌工具-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
 
         <!--测试依赖-->
         <dependency>

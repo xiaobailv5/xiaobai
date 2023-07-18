@@ -11,6 +11,7 @@ public abstract class Animal implements Cloneable{
 
     private String id;
     protected String type;
+    protected String name;
 
     /**
      * 动物
@@ -32,6 +33,15 @@ public abstract class Animal implements Cloneable{
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public Object clone() {
         Object clone = null;
@@ -41,5 +51,14 @@ public abstract class Animal implements Cloneable{
             e.printStackTrace();
         }
         return clone;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

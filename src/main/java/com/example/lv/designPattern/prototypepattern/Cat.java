@@ -23,4 +23,21 @@ public class Cat extends Animal{
         LOGGER.info("It's a cat");
     }
 
+    private String catName;
+
+    public String getCatName() {
+        return catName;
+    }
+
+    public Cat setCatName(String catName) {
+        this.catName = catName;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "catName='" + catName + '\'' +
+                '}';
+    }
 }
