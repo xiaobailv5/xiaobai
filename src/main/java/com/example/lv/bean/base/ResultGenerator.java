@@ -42,6 +42,15 @@ public class ResultGenerator {
                 .setBean(bean);
     }
     /**
+     * 成功返回数据
+     */
+    public static Result getSuccessResult(Map<String,Object> bean) {
+        return new Result()
+                .setCode(ResultCode.SUCCESS)
+                .setMessage(DEFAULT_SUCCESS_MESSAGE)
+                .setBean(bean);
+    }
+    /**
      * 失败
      */
     public static Result getFailResult(String message) {
