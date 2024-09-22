@@ -18,6 +18,10 @@ public class UserRequest implements Serializable {
      */
     private String userName;
     /**
+     * 用户id
+     */
+    private String userId;
+    /**
      * 手机号
      */
     private String phone;
@@ -36,6 +40,14 @@ public class UserRequest implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPhone() {
@@ -66,6 +78,7 @@ public class UserRequest implements Serializable {
     public String toString() {
         return "UserRequest{" +
                 "userName='" + userName + '\'' +
+                ", userId='" + userId + '\'' +
                 ", phone='" + phone + '\'' +
                 ", start=" + start +
                 ", limit=" + limit +

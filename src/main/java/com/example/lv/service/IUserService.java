@@ -27,4 +27,11 @@ public interface IUserService {
      * @return
      */
     int getUserCount(UserRequest request);
+
+    /**
+     * 查询用户信息
+     * @param userId
+     * @return
+     */
+    User getUserInfo(String userId);
 }

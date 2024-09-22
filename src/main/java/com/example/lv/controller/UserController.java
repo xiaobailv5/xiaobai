@@ -70,4 +70,26 @@ public class UserController {
         }
         return result;
     }
+
+    @PostMapping(value = "/getUserInfo")
+    @OperationAnnotation(action = "getUserInfo",content = "查询用户信息")
+    @PreAuthorize("@ex.hasAuthority('test')")
+    @I18nAnnotation(replaceKey = "userName", returnType = "data", name = "com.example.lv.dao.entity.base.User")
+    public Result getUserInfo(@RequestBody UserRequest request){
+        LOGGER.info("getUserInfo入参"+request);
+        Result result;
+        String userId = request.getUserId();
+        try {
+
+            User userInfo = userService.getUserInfo(userId);
+
+            result = ResultGenerator.getSuccessResult(userInfo);
+        }catch (Exception e){
+            LOGGER.info(e.getMessage());
+            return ResultGenerator.getFailResult(e.getMessage());
+        }
+        return result;
+    }
+
+
 }

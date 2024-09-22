@@ -29,4 +29,6 @@ public interface UserDao {
      * @return
      */
     int getUserCount(UserRequest request);
+
+    User getUserInfo(String userId);
 }

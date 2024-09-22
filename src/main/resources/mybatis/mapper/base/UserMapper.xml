@@ -49,6 +49,12 @@
             AND phone=#{phone}
         </if>
     </select>
+    <select id="getUserInfo" resultMap="baseUserMap">
+        select user_id,user_name,salt,phone,avatar,dept_id,lock_flag,del_flag,create_by,
+               update_by,DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s'),DATE_FORMAT(update_time,'%Y-%m-%d %H:%i:%s')
+        from user
+        where user_id = #{userId}
+    </select>
 
 
 </mapper>

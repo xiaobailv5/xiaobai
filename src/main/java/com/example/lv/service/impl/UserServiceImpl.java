@@ -56,4 +56,14 @@ public class UserServiceImpl implements IUserService {
     public int getUserCount(UserRequest request) {
         return userDao.getUserCount(request);
     }
+
+    /**
+     * 查询用户信息
+     * @param userId
+     * @return
+     */
+    @Override
+    public User getUserInfo(String userId) {
+        return userDao.getUserInfo(userId);
+    }
 }
