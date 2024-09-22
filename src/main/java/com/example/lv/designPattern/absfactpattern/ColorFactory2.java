@@ -5,7 +5,7 @@ import com.example.lv.designPattern.factorymode.colorFactory.Color;
 import com.example.lv.designPattern.factorymode.colorFactory.Green;
 import com.example.lv.designPattern.factorymode.colorFactory.Red;
 import com.example.lv.designPattern.factorymode.shapeFactory.Shape;
-import com.example.lv.util.ConstantUtil;
+import com.example.lv.util.Constant;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -25,11 +25,11 @@ public class ColorFactory2 extends AbstractFactory{
         if(StringUtils.isEmpty(colorType)){
             return null;
         }
-        if(ConstantUtil.RED.equalsIgnoreCase(colorType)){
+        if(Constant.RED.equalsIgnoreCase(colorType)){
             return new Red();
-        } else if(ConstantUtil.GREEN.equalsIgnoreCase(colorType)){
+        } else if(Constant.GREEN.equalsIgnoreCase(colorType)){
             return new Green();
-        } else if(ConstantUtil.BLUE.equalsIgnoreCase(colorType)){
+        } else if(Constant.BLUE.equalsIgnoreCase(colorType)){
             return new Blue();
         }
         return null;

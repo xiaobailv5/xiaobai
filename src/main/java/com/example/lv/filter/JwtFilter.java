@@ -2,7 +2,7 @@ package com.example.lv.filter;
 
 import com.example.lv.dao.entity.base.LoginUser;
 import com.example.lv.exception.MyOwnRuntimeException;
-import com.example.lv.util.ConstantUtil;
+import com.example.lv.util.Constant;
 import com.example.lv.util.JwtUtil;
 import com.example.lv.util.RedisUtil;
 import io.jsonwebtoken.Claims;
@@ -55,7 +55,7 @@ public class JwtFilter extends OncePerRequestFilter {
         }
 
 
-        String redisKey = ConstantUtil.LOGIN+userId;
+        String redisKey = Constant.LOGIN+userId;
         LoginUser loginUser = redisUtil.getObject(redisKey);
         if(ObjectUtils.isEmpty(loginUser)){
             throw new MyOwnRuntimeException("用户认证失败。。");

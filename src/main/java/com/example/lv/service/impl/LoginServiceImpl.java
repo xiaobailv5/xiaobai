@@ -5,11 +5,10 @@ import com.example.lv.bean.base.ResultGenerator;
 import com.example.lv.bean.web.LoginRequest;
 import com.example.lv.dao.entity.base.LoginUser;
 import com.example.lv.service.ILoginService;
-import com.example.lv.util.ConstantUtil;
+import com.example.lv.util.Constant;
 import com.example.lv.util.JwtUtil;
 import com.example.lv.util.RedisUtil;
 import org.apache.commons.lang3.ObjectUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -53,7 +52,7 @@ public class LoginServiceImpl implements ILoginService {
         String userId = String.valueOf(loginUser.getUser().getUserId());
         String jwt = JwtUtil.createJWT(userId);
         //user信息存入redis 5分钟
-        redisUtil.setObject(ConstantUtil.LOGIN+userId,loginUser,300, TimeUnit.SECONDS);
+        redisUtil.setObject(Constant.LOGIN+userId,loginUser,300, TimeUnit.SECONDS);
         Map<String,Object> map = new HashMap<>(2);
         map.put("token",jwt);
         return ResultGenerator.getSuccessBeanResult(map);
@@ -69,7 +68,7 @@ public class LoginServiceImpl implements ILoginService {
         LoginUser loginUser = (LoginUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Integer userId = loginUser.getUser().getUserId();
         //删除redis中的用户
-        String redisKey = ConstantUtil.LOGIN+userId;
+        String redisKey = Constant.LOGIN+userId;
         redisUtil.deleteObject(redisKey);
 
         return ResultGenerator.getSuccessResult();

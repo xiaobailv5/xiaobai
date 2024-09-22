@@ -2,7 +2,7 @@ package com.example.lv.designPattern.factorymode.shapeFactory;
 
 import com.example.lv.designPattern.absfactpattern.AbstractFactory;
 import com.example.lv.designPattern.factorymode.colorFactory.Color;
-import com.example.lv.util.ConstantUtil;
+import com.example.lv.util.Constant;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -27,11 +27,11 @@ public class ShapeFactory2 extends AbstractFactory {
         if(StringUtils.isEmpty(shapeType)){
             return null;
         }
-        if(ConstantUtil.CIRCLE.equalsIgnoreCase(shapeType)){
+        if(Constant.CIRCLE.equalsIgnoreCase(shapeType)){
             return new Circle();
-        } else if(ConstantUtil.RECTANGLE.equalsIgnoreCase(shapeType)){
+        } else if(Constant.RECTANGLE.equalsIgnoreCase(shapeType)){
             return new Rectangle();
-        } else if(ConstantUtil.SQUARE.equalsIgnoreCase(shapeType)){
+        } else if(Constant.SQUARE.equalsIgnoreCase(shapeType)){
             return new Square();
         }
         return null;

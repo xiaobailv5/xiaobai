@@ -7,7 +7,7 @@ package com.example.lv.util;
  * @description 常量
  * @date 2023/6/20 07:55:20
  */
-public class ConstantUtil {
+public class Constant {
     /**
      * redisKey或redis前缀
      */
@@ -31,4 +31,13 @@ public class ConstantUtil {
      */
     public static final String SHAPE = "SHAPE";
     public static final String COLOR = "COLOR";
+
+    /**
+     * base数据源
+     */
+    public static final String BASE = "base";
+    /**
+     * 默认数据源 local
+     */
+    public static final String LOCAL = "local";
 }
