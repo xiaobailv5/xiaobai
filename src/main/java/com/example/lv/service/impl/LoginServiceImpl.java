@@ -54,9 +54,9 @@ public class LoginServiceImpl implements ILoginService {
         String jwt = JwtUtil.createJWT(userId);
         //user信息存入redis 5分钟
         redisUtil.setObject(ConstantUtil.LOGIN+userId,loginUser,300, TimeUnit.SECONDS);
-        Map<String,String> map = new HashMap<>(2);
+        Map<String,Object> map = new HashMap<>(2);
         map.put("token",jwt);
-        return ResultGenerator.getSuccessResult(map);
+        return ResultGenerator.getSuccessBeanResult(map);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.example.lv.controller;
 
+import com.example.lv.aspect.I18nAnnotation;
 import com.example.lv.bean.base.Result;
 import com.example.lv.bean.base.ResultGenerator;
 import com.example.lv.bean.web.LoginRequest;
@@ -29,6 +30,7 @@ public class LoginController {
     private ILoginService loginService;
 
     @PostMapping("/user/login")
+    @I18nAnnotation(replaceKey = "username", returnType = "bean", name = "java.util.Map")
     public Result login(@RequestBody LoginRequest request){
         LOGGER.info("登录======开始"+request);
         return loginService.login(request);

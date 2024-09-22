@@ -1,5 +1,6 @@
 package com.example.lv.controller;
 
+import com.example.lv.aspect.I18nAnnotation;
 import com.example.lv.aspect.OperationAnnotation;
 import com.example.lv.bean.base.Result;
 import com.example.lv.bean.base.ResultGenerator;
@@ -42,6 +43,7 @@ public class UserController {
     @PostMapping(value = "/getUserList")
     @OperationAnnotation(action = "getUserList",content = "查询用户列表")
     @PreAuthorize("@ex.hasAuthority('test')")
+    @I18nAnnotation(replaceKey = "userName", returnType = "data", name = "java.util.List")
     public Result getUserList(@RequestBody UserRequest request){
         LOGGER.info("getUserList入参"+request);
         Result result;
