@@ -134,7 +134,13 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.16</version>
         </dependency>
-
+        <!--markdown文档-->
+        <dependency>
+            <groupId>com.vladsch.flexmark</groupId>
+            <artifactId>flexmark-all</artifactId>
+            <version>0.60.0</version>
+            <scope>test</scope>
+        </dependency>
 
 
     </dependencies>

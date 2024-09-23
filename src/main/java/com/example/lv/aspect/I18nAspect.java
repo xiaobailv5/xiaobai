@@ -44,13 +44,14 @@ public class I18nAspect {
 
         String returnType = i18nAnnotation.returnType();
 
+        List<String> replaceKeys = Arrays.asList(replaceKey.split(","));
         if (returnObject instanceof Result) {
             try {
                 Class<?> aClass = Class.forName(className);
                 Result result = (Result) returnObject;
                 List<String> list = Arrays.asList(returnType.split(","));
 
-                List<String> replaceKeys = Arrays.asList(replaceKey.split(","));
+
 
                 if (list.contains("data")) {
 
@@ -107,8 +108,26 @@ public class I18nAspect {
 
 
         } else if (returnObject instanceof List) {
+            JSONArray jsonArray = new JSONArray();
+            jsonArray = JSON.parseArray(JSONObject.toJSONString(returnObject));
+            for (int i = 0; i < jsonArray.size(); i++) {
+                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
+                for (String key : replaceKeys) {
+                    String val = (String) jsonObject.get(key);
+                    System.out.println(val);
+                    jsonObject.put(key, "11");
+                }
+
+            }
         } else if (returnObject instanceof Map) {
+
+            JSONObject itemJSONObj = JSONObject.parseObject(JSON.toJSONString(returnObject));
+            for (String key : replaceKeys) {
+                String val = (String) itemJSONObj.get(key);
+                System.out.println(val);
+                itemJSONObj.put(key, "11");
+            }
 
         }
 
