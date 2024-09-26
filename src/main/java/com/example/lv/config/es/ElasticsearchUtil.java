@@ -25,6 +25,7 @@ import org.elasticsearch.common.Strings;
 import org.elasticsearch.common.text.Text;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
@@ -351,6 +352,26 @@ public class ElasticsearchUtil {
         return new ArrayList<>();
     }
 
+    /**
+     * 查询索引
+     * @param indexName
+     * @param query
+     * @return org.elasticsearch.action.search.SearchResponse
+     * @author gxjh2
+     * @date 2024/9/23 20:54:53
+    */
+    public SearchResponse search(String indexName, String query) throws IOException {
+        // 创建SearchRequest
+        SearchRequest searchRequest = new SearchRequest(indexName);
+        // 创建SearchSourceBuilder
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        // 设置查询条件，这里以match query为例
+        searchSourceBuilder.query(QueryBuilders.matchQuery("_all", query));
+        // 将查询条件设置到SearchRequest
+        searchRequest.source(searchSourceBuilder);
+        // 执行查询
+        return client.search(searchRequest, RequestOptions.DEFAULT);
+    }
 
 
 }
