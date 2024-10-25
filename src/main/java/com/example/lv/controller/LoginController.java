@@ -29,6 +29,13 @@ public class LoginController {
     @Resource
     private ILoginService loginService;
 
+    /**
+     * 登录接口
+     * @param request
+     * @return com.example.lv.bean.base.Result
+     * @author gxjh2
+     * @date 2024/10/25 16:54:58
+    */
     @PostMapping("/user/login")
     @I18nAnnotation(replaceKey = "username", returnType = "bean", name = "java.util.Map")
     public Result login(@RequestBody LoginRequest request){
