@@ -8,6 +8,7 @@ import com.example.lv.service.ILoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,5 +59,11 @@ public class LoginController {
             result = ResultGenerator.getFailResult(e.getMessage());
         }
         return result;
+    }
+
+    @GetMapping("/user/test")
+    public Result test() throws InterruptedException {
+        Thread.sleep(1000);
+        return ResultGenerator.getSuccessResult("测试成功");
     }
 }
