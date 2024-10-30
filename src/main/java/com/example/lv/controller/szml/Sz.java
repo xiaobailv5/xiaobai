@@ -34,20 +34,15 @@ public class Sz {
     private static String process(String s) {
 
         if (s.contains("[")) {
-            s.replaceAll("\\[","");
-            if (s.contains("]")) {
-                s.replaceAll("\\[","");
-            }else {
-                return s;
-            }
-
+            String s1 = s.replaceAll("\\[", "");
+            return s1;
 
         } else if (s.contains("]")) {
-            s.replaceAll("]","");
-            return s;
+            String s1 = s.replaceAll("]", "");
+            return s1;
         } else {
             return s;
         }
-        return s;
+
     }
 }
