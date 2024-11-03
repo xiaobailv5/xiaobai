@@ -142,6 +142,19 @@
             <scope>test</scope>
         </dependency>
 
+        <!--配置密码加密-->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <!--jasypt 密文生成插件-->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-maven-plugin</artifactId>
+            <version>3.0.5</version>
+        </dependency>
 
     </dependencies>
 
@@ -180,6 +193,22 @@
                     <overwrite>true</overwrite>
                     <!-- mybatis-generator配置文件路径 -->
                     <configurationFile>${basedir}/src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-maven-plugin</artifactId>
+                <version>3.0.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>encrypt</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- 插件配置 -->
                 </configuration>
             </plugin>
         </plugins>
