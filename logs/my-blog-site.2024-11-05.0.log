@@ -1,0 +1,401 @@
+2024-11-05 19:39:57.066  INFO 20604 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 20604 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 19:39:57.069  INFO 20604 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 19:39:58.194  INFO 20604 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 19:39:58.197  INFO 20604 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 19:39:58.234  INFO 20604 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2024-11-05 19:39:58.365  WARN 20604 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 19:39:58.519  INFO 20604 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 19:39:58.544  INFO 20604 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 19:39:58.545  INFO 20604 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:39:58.546  INFO 20604 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:39:58.546  INFO 20604 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:39:58.547  INFO 20604 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 19:39:58.547  INFO 20604 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:39:58.547  INFO 20604 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:39:58.611  INFO 20604 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 19:39:59.266  INFO 20604 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 19:39:59.276  INFO 20604 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 19:39:59.277  INFO 20604 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 19:39:59.277  INFO 20604 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 19:39:59.429  INFO 20604 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 19:39:59.430  INFO 20604 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2312 ms
+2024-11-05 19:39:59.930  INFO 20604 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 19:39:59.932  INFO 20604 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 19:39:59.944  INFO 20604 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 19:39:59.947  INFO 20604 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 19:39:59.953  WARN 20604 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webLogAspect': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysLogMapper' defined in file [D:\workface\xiaobai\target\classes\com\example\lv\dao\mapper\base\SysLogMapper.class]: Cannot resolve reference to bean 'baseSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseSqlSessionFactory' defined in class path resource [com/example/lv/config/mysql/MybatisBaseConfig.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'baseDataSource': Could not bind properties to 'DataSource' : prefix=spring.datasource.base, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+2024-11-05 19:40:00.072  INFO 20604 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-05 19:40:00.083  INFO 20604 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-11-05 19:40:00.112 ERROR 20604 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.base.password' to java.lang.String:
+
+    Reason: java.lang.IllegalStateException: either 'jasypt.encryptor.password' or one of ['jasypt.encryptor.private-key-string', 'jasypt.encryptor.private-key-location'] must be provided for Password-based or Asymmetric encryption
+
+Action:
+
+Update your application's configuration
+
+2024-11-05 19:44:41.246  INFO 13508 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 13508 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 19:44:41.249  INFO 13508 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 19:44:42.053  INFO 13508 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 19:44:42.057  INFO 13508 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 19:44:42.094  INFO 13508 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2024-11-05 19:44:42.235  WARN 13508 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 19:44:42.387  INFO 13508 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 19:44:42.415  INFO 13508 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 19:44:42.416  INFO 13508 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:44:42.416  INFO 13508 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:44:42.417  INFO 13508 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:44:42.418  INFO 13508 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 19:44:42.418  INFO 13508 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:44:42.418  INFO 13508 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:44:42.487  INFO 13508 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 19:44:43.224  INFO 13508 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 19:44:43.234  INFO 13508 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 19:44:43.235  INFO 13508 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 19:44:43.235  INFO 13508 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 19:44:43.436  INFO 13508 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 19:44:43.437  INFO 13508 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2148 ms
+2024-11-05 19:44:43.934  INFO 13508 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 19:44:43.938  INFO 13508 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 19:44:43.951  INFO 13508 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 19:44:43.963  INFO 13508 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2024-11-05 19:44:43.963  INFO 13508 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2024-11-05 19:44:43.964  INFO 13508 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2024-11-05 19:44:43.964  INFO 13508 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2024-11-05 19:44:43.964  INFO 13508 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2024-11-05 19:44:43.965  INFO 13508 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.iv-generator-classname, using default value: org.jasypt.iv.RandomIvGenerator
+2024-11-05 19:44:43.967  INFO 13508 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2024-11-05 19:44:44.222  WARN 13508 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webLogAspect': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysLogMapper' defined in file [D:\workface\xiaobai\target\classes\com\example\lv\dao\mapper\base\SysLogMapper.class]: Cannot resolve reference to bean 'baseSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseSqlSessionFactory' defined in class path resource [com/example/lv/config/mysql/MybatisBaseConfig.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'baseDataSource': Could not bind properties to 'DataSource' : prefix=spring.datasource.base, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+2024-11-05 19:44:44.359  INFO 13508 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-05 19:44:44.373  INFO 13508 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-11-05 19:44:44.395 ERROR 13508 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.base.password' to java.lang.String:
+
+    Reason: org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+
+Action:
+
+Update your application's configuration
+
+2024-11-05 19:46:12.037  INFO 7308 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 7308 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 19:46:12.040  INFO 7308 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 19:46:12.960  INFO 7308 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 19:46:12.965  INFO 7308 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 19:46:13.008  INFO 7308 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2024-11-05 19:46:13.139  WARN 7308 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 19:46:13.292  INFO 7308 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 19:46:13.315  INFO 7308 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 19:46:13.317  INFO 7308 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:46:13.317  INFO 7308 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:46:13.318  INFO 7308 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:46:13.318  INFO 7308 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 19:46:13.319  INFO 7308 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:46:13.319  INFO 7308 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:46:13.380  INFO 7308 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 19:46:13.996  INFO 7308 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 19:46:14.005  INFO 7308 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 19:46:14.006  INFO 7308 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 19:46:14.006  INFO 7308 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 19:46:14.175  INFO 7308 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 19:46:14.175  INFO 7308 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2096 ms
+2024-11-05 19:46:14.582  INFO 7308 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 19:46:14.583  INFO 7308 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 19:46:14.594  INFO 7308 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 19:46:14.604  INFO 7308 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2024-11-05 19:46:14.604  INFO 7308 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2024-11-05 19:46:14.604  INFO 7308 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2024-11-05 19:46:14.604  INFO 7308 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2024-11-05 19:46:14.604  INFO 7308 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2024-11-05 19:46:14.606  INFO 7308 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.iv-generator-classname, using default value: org.jasypt.iv.RandomIvGenerator
+2024-11-05 19:46:14.607  INFO 7308 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2024-11-05 19:46:14.817  WARN 7308 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webLogAspect': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysLogMapper' defined in file [D:\workface\xiaobai\target\classes\com\example\lv\dao\mapper\base\SysLogMapper.class]: Cannot resolve reference to bean 'baseSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseSqlSessionFactory' defined in class path resource [com/example/lv/config/mysql/MybatisBaseConfig.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'baseDataSource': Could not bind properties to 'DataSource' : prefix=spring.datasource.base, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+2024-11-05 19:46:14.962  INFO 7308 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-05 19:46:14.972  INFO 7308 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-11-05 19:46:14.992 ERROR 7308 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.base.password' to java.lang.String:
+
+    Reason: org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+
+Action:
+
+Update your application's configuration
+
+2024-11-05 19:48:54.272  INFO 25436 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 25436 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 19:48:54.277  INFO 25436 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 19:48:55.362  INFO 25436 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 19:48:55.366  INFO 25436 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 19:48:55.411  INFO 25436 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2024-11-05 19:48:55.575  WARN 25436 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 19:48:55.786  INFO 25436 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 19:48:55.816  INFO 25436 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 19:48:55.817  INFO 25436 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:48:55.817  INFO 25436 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:48:55.818  INFO 25436 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:48:55.819  INFO 25436 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 19:48:55.819  INFO 25436 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:48:55.819  INFO 25436 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:48:55.900  INFO 25436 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 19:48:56.747  INFO 25436 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 19:48:56.767  INFO 25436 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 19:48:56.768  INFO 25436 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 19:48:56.769  INFO 25436 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 19:48:57.012  INFO 25436 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 19:48:57.013  INFO 25436 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2682 ms
+2024-11-05 19:48:57.629  INFO 25436 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 19:48:57.633  INFO 25436 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 19:48:57.650  INFO 25436 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 19:48:57.669  INFO 25436 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2024-11-05 19:48:57.669  INFO 25436 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2024-11-05 19:48:57.670  INFO 25436 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2024-11-05 19:48:57.670  INFO 25436 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2024-11-05 19:48:57.670  INFO 25436 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2024-11-05 19:48:57.673  INFO 25436 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.iv-generator-classname, using default value: org.jasypt.iv.RandomIvGenerator
+2024-11-05 19:48:57.675  INFO 25436 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2024-11-05 19:48:58.018  WARN 25436 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webLogAspect': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysLogMapper' defined in file [D:\workface\xiaobai\target\classes\com\example\lv\dao\mapper\base\SysLogMapper.class]: Cannot resolve reference to bean 'baseSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseSqlSessionFactory' defined in class path resource [com/example/lv/config/mysql/MybatisBaseConfig.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'baseDataSource': Could not bind properties to 'DataSource' : prefix=spring.datasource.base, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+2024-11-05 19:48:58.166  INFO 25436 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-05 19:48:58.205  INFO 25436 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-11-05 19:48:58.231 ERROR 25436 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.base.password' to java.lang.String:
+
+    Reason: org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+
+Action:
+
+Update your application's configuration
+
+2024-11-05 19:52:53.232  INFO 23672 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 23672 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 19:52:53.234  INFO 23672 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 19:52:54.192  INFO 23672 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 19:52:54.196  INFO 23672 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 19:52:54.291  INFO 23672 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 0 Redis repository interfaces.
+2024-11-05 19:52:54.501  WARN 23672 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 19:52:54.753  INFO 23672 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 19:52:54.797  INFO 23672 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 19:52:54.799  INFO 23672 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:52:54.799  INFO 23672 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:52:54.800  INFO 23672 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:52:54.801  INFO 23672 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 19:52:54.801  INFO 23672 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:52:54.801  INFO 23672 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:52:54.908  INFO 23672 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 19:52:55.762  INFO 23672 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 19:52:55.775  INFO 23672 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 19:52:55.776  INFO 23672 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 19:52:55.778  INFO 23672 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 19:52:56.087  INFO 23672 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 19:52:56.087  INFO 23672 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2805 ms
+2024-11-05 19:52:56.832  INFO 23672 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 19:52:56.835  INFO 23672 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 19:52:56.851  INFO 23672 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 19:52:56.868  INFO 23672 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2024-11-05 19:52:56.868  INFO 23672 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2024-11-05 19:52:56.868  INFO 23672 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2024-11-05 19:52:56.868  INFO 23672 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2024-11-05 19:52:56.868  INFO 23672 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2024-11-05 19:52:56.869  INFO 23672 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.iv-generator-classname, using default value: org.jasypt.iv.RandomIvGenerator
+2024-11-05 19:52:56.870  INFO 23672 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2024-11-05 19:52:57.281  WARN 23672 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webLogAspect': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysLogMapper' defined in file [D:\workface\xiaobai\target\classes\com\example\lv\dao\mapper\base\SysLogMapper.class]: Cannot resolve reference to bean 'baseSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseSqlSessionFactory' defined in class path resource [com/example/lv/config/mysql/MybatisBaseConfig.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'baseDataSource': Could not bind properties to 'DataSource' : prefix=spring.datasource.base, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+2024-11-05 19:52:57.420  INFO 23672 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-05 19:52:57.435  INFO 23672 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-11-05 19:52:57.460 ERROR 23672 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.base.password' to java.lang.String:
+
+    Reason: org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+
+Action:
+
+Update your application's configuration
+
+2024-11-05 19:54:14.668  INFO 21176 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 21176 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 19:54:14.670  INFO 21176 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 19:54:15.329  INFO 21176 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 19:54:15.331  INFO 21176 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 19:54:15.361  INFO 21176 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2024-11-05 19:54:15.473  WARN 21176 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 19:54:15.619  INFO 21176 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 19:54:15.640  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 19:54:15.641  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:54:15.641  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:54:15.642  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:54:15.642  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 19:54:15.642  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 19:54:15.643  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 19:54:15.695  INFO 21176 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 19:54:16.233  INFO 21176 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 19:54:16.242  INFO 21176 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 19:54:16.243  INFO 21176 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 19:54:16.243  INFO 21176 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 19:54:16.371  INFO 21176 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 19:54:16.371  INFO 21176 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1664 ms
+2024-11-05 19:54:16.729  INFO 21176 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 19:54:16.730  INFO 21176 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 19:54:16.741  INFO 21176 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 19:54:16.750  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2024-11-05 19:54:16.751  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2024-11-05 19:54:16.751  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2024-11-05 19:54:16.751  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2024-11-05 19:54:16.751  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2024-11-05 19:54:16.752  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.iv-generator-classname, using default value: org.jasypt.iv.RandomIvGenerator
+2024-11-05 19:54:16.753  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2024-11-05 19:54:16.954  WARN 21176 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webLogAspect': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysLogMapper' defined in file [D:\workface\xiaobai\target\classes\com\example\lv\dao\mapper\base\SysLogMapper.class]: Cannot resolve reference to bean 'baseSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseSqlSessionFactory' defined in class path resource [com/example/lv/config/mysql/MybatisBaseConfig.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'baseDataSource': Could not bind properties to 'DataSource' : prefix=spring.datasource.base, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+2024-11-05 19:54:17.179  INFO 21176 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-05 19:54:17.189  INFO 21176 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-11-05 19:54:17.215 ERROR 21176 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.base.password' to java.lang.String:
+
+    Reason: org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+
+Action:
+
+Update your application's configuration
+
+2024-11-05 20:00:17.780  INFO 21176 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 21176 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 20:00:17.783  INFO 21176 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 20:00:18.698  INFO 21176 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 20:00:18.701  INFO 21176 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 20:00:18.743  INFO 21176 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2024-11-05 20:00:18.881  WARN 21176 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 20:00:19.077  INFO 21176 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 20:00:19.102  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 20:00:19.103  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 20:00:19.105  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 20:00:19.105  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 20:00:19.106  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 20:00:19.106  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 20:00:19.106  INFO 21176 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 20:00:19.174  INFO 21176 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 20:00:19.891  INFO 21176 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 20:00:19.904  INFO 21176 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 20:00:19.905  INFO 21176 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 20:00:19.906  INFO 21176 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 20:00:20.084  INFO 21176 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 20:00:20.084  INFO 21176 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2253 ms
+2024-11-05 20:00:20.520  INFO 21176 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 20:00:20.523  INFO 21176 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 20:00:20.533  INFO 21176 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 20:00:20.543  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2024-11-05 20:00:20.544  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2024-11-05 20:00:20.544  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2024-11-05 20:00:20.544  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2024-11-05 20:00:20.544  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2024-11-05 20:00:20.546  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.iv-generator-classname, using default value: org.jasypt.iv.RandomIvGenerator
+2024-11-05 20:00:20.547  INFO 21176 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2024-11-05 20:00:20.808  WARN 21176 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webLogAspect': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sysLogMapper' defined in file [D:\workface\xiaobai\target\classes\com\example\lv\dao\mapper\base\SysLogMapper.class]: Cannot resolve reference to bean 'baseSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseSqlSessionFactory' defined in class path resource [com/example/lv/config/mysql/MybatisBaseConfig.class]: Unsatisfied dependency expressed through method 'sqlSessionFactory' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'baseDataSource': Could not bind properties to 'DataSource' : prefix=spring.datasource.base, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+2024-11-05 20:00:20.932  INFO 21176 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-11-05 20:00:20.945  INFO 21176 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-11-05 20:00:20.965 ERROR 21176 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.datasource.base.password' to java.lang.String:
+
+    Reason: org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.datasource.base.password' to java.lang.String
+
+Action:
+
+Update your application's configuration
+
+2024-11-05 20:01:44.937  INFO 22576 --- [           main] com.example.lv.XiaoBaiApplication        : Starting XiaoBaiApplication using Java 1.8.0_333 on DESKTOP-P39HHFL with PID 22576 (D:\workface\xiaobai\target\classes started by gxjh2 in D:\workface\xiaobai)
+2024-11-05 20:01:44.939  INFO 22576 --- [           main] com.example.lv.XiaoBaiApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-11-05 20:01:45.590  INFO 22576 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 20:01:45.592  INFO 22576 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 20:01:45.622  INFO 22576 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2024-11-05 20:01:45.740  WARN 22576 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.lv.dao.mapper.local]' package. Please check your configuration.
+2024-11-05 20:01:45.880  INFO 22576 --- [           main] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2024-11-05 20:01:45.900  INFO 22576 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2024-11-05 20:01:45.901  INFO 22576 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 20:01:45.901  INFO 22576 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 20:01:45.902  INFO 22576 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 20:01:45.902  INFO 22576 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2024-11-05 20:01:45.902  INFO 22576 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2024-11-05 20:01:45.902  INFO 22576 --- [           main] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2024-11-05 20:01:45.956  INFO 22576 --- [           main] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2024-11-05 20:01:46.464  INFO 22576 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 18089 (http)
+2024-11-05 20:01:46.471  INFO 22576 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-18089"]
+2024-11-05 20:01:46.471  INFO 22576 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-05 20:01:46.472  INFO 22576 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-11-05 20:01:46.595  INFO 22576 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-05 20:01:46.595  INFO 22576 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1618 ms
+2024-11-05 20:01:46.946  INFO 22576 --- [           main] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2024-11-05 20:01:46.948  INFO 22576 --- [           main] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2024-11-05 20:01:46.956  INFO 22576 --- [           main] c.u.j.encryptor.DefaultLazyEncryptor     : String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+2024-11-05 20:01:46.965  INFO 22576 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.key-obtention-iterations, using default value: 1000
+2024-11-05 20:01:46.965  INFO 22576 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.pool-size, using default value: 1
+2024-11-05 20:01:46.965  INFO 22576 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-name, using default value: null
+2024-11-05 20:01:46.966  INFO 22576 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.provider-class-name, using default value: null
+2024-11-05 20:01:46.966  INFO 22576 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.salt-generator-classname, using default value: org.jasypt.salt.RandomSaltGenerator
+2024-11-05 20:01:46.967  INFO 22576 --- [           main] c.u.j.c.StringEncryptorBuilder           : Encryptor config not found for property jasypt.encryptor.string-output-type, using default value: base64
+2024-11-05 20:01:47.404  INFO 22576 --- [           main] c.e.l.c.es.ElasticSearchClientConfig     : host==127.0.0.1port==9200connTimeout==3000socketTimeout5000connectionRequestTimeout500
+2024-11-05 20:01:47.864  WARN 22576 --- [           main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2024-11-05 20:01:48.309  INFO 22576 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3387ab0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@470f0637, org.springframework.security.web.context.SecurityContextPersistenceFilter@408d945b, org.springframework.security.web.header.HeaderWriterFilter@b8142f4, org.springframework.web.filter.CorsFilter@6b278b17, org.springframework.security.web.authentication.logout.LogoutFilter@148fca83, com.example.lv.filter.JwtFilter$$EnhancerBySpringCGLIB$$e5882183@91a2543, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6f4fc83f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59c862af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bb9f7d4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ae5580, org.springframework.security.web.session.SessionManagementFilter@146833a2, org.springframework.security.web.access.ExceptionTranslationFilter@4bca8eaf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@75aa7703]
+2024-11-05 20:01:48.325  INFO 22576 --- [           main] c.e.lv.config.thread.ExecutorConfig      : start asyncServiceExecutor
+2024-11-05 20:01:48.785  INFO 22576 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-18089"]
+2024-11-05 20:01:48.796  INFO 22576 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 18089 (http) with context path ''
+2024-11-05 20:01:48.808  INFO 22576 --- [           main] com.example.lv.XiaoBaiApplication        : Started XiaoBaiApplication in 4.506 seconds (JVM running for 5.545)
+2024-11-05 20:07:30.712  INFO 22576 --- [http-nio-18089-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-05 20:07:30.712  INFO 22576 --- [http-nio-18089-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-05 20:07:30.715  INFO 22576 --- [http-nio-18089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-11-05 20:07:30.868  INFO 22576 --- [http-nio-18089-exec-2] c.example.lv.controller.LoginController  : 登录======开始LoginRequest{username='admin', password='123456'}
+2024-11-05 20:07:30.978  INFO 22576 --- [http-nio-18089-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-05 20:07:31.339  INFO 22576 --- [http-nio-18089-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
