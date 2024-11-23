@@ -39,6 +39,11 @@ public class MaxStrLength {
     }
 
     public static int lengthOfLongestSubstring2(String s) {
+
+        if (s == null || "".equals(s)) {
+            return 0;
+        }
+
         // 哈希集合，记录每个字符是否出现过
         Set<Character> set = new HashSet<>();
         int maxLength = 0;  // 最长子串的长度
