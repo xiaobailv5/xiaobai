@@ -77,11 +77,12 @@ public class EsController {
 
     /**
      * 搜索索引
+     *
      * @param indexName
      * @return com.example.lv.bean.base.Result
      * @author gxjh2
      * @date 2024/9/23 20:56:04
-    */
+     */
     @PostMapping(value = "/search")
     public Result search(String indexName) {
 
@@ -104,38 +105,38 @@ public class EsController {
     }
 
 
-
     /**
      * 自定义评分
+     *
      * @param userId
      * @param province
      * @param face
      * @return FunctionScoreQueryBuilder.FilterFunctionBuilder[]
      * @author gxjh2
      * @date 2024/9/27 09:08:02
-    */
-    public FunctionScoreQueryBuilder.FilterFunctionBuilder[] changeFunction(long userId, String province, Map<String,Float> face) {
+     */
+    public FunctionScoreQueryBuilder.FilterFunctionBuilder[] changeFunction(long userId, String province, Map<String, Float> face) {
         //userId==-1表示游客登录，不需要个性化，只用根据省份
         double labelNumScore = 1.2;
         double maxLabelScore = 1.0;
         double minLabelScore = 0.0;
         List<String> labels = new ArrayList<>();
         labels.add("#");
-        String[] provinces = new String[] {"河南","河北"};
+        String[] provinces = new String[]{"河南", "河北"};
         List<String> provinceList = Arrays.asList(provinces);
-        StringBuilder scoreScript= new StringBuilder();
+        StringBuilder scoreScript = new StringBuilder();
         //记录function的数量
-        int functionNum=0;
+        int functionNum = 0;
         FunctionScoreQueryBuilder.FilterFunctionBuilder[] filterFunctionBuilders;
         //1.游客登录，仅记录省份影响，数组长度=1（设置过长会导致function==null产生错误）
-        if(userId==-1){
+        if (userId == -1) {
             filterFunctionBuilders = new FunctionScoreQueryBuilder.FilterFunctionBuilder[1];
         }
         //2.非游客登录：添加对应用户标签画像,标签score_script脚本自定义评分
         else {
             filterFunctionBuilders = new FunctionScoreQueryBuilder.FilterFunctionBuilder[2];
             //对省份和标签的自定义结果进行求和
-            Object[] label= face.keySet().toArray();
+            Object[] label = face.keySet().toArray();
             List<Short> labelNum = new ArrayList<>();
             // 将字符串标签转换为数字编号形式，用于排序规则的编写
             for (Object o : label) {
@@ -146,38 +147,39 @@ public class EsController {
             //若占比小于25%，则此标签对用户没有明显影响，此时匹配省份=0.5，标签=1，score评分升高
             //若匹配省份=0，标签=1，则score评分保持不变（也合理，如果查询评分非常高则足以超越前面的内容）
             //对标签的影响进行一定限制，避免查询结果完全由标签控制
-            double labelScore=Math.min(face.get(label[0]) * labelNumScore,maxLabelScore);
-            labelScore=Math.max(labelScore,minLabelScore);
+            double labelScore = Math.min(face.get(label[0]) * labelNumScore, maxLabelScore);
+            labelScore = Math.max(labelScore, minLabelScore);
             scoreScript.append("if(doc['labelNum'].value==").append(labelNum.get(0)).append("){return ").append(labelScore).append(";}");
-            for (int i=1;i<label.length;i++){
-                if(face.get(label[i]) * labelNumScore<minLabelScore){
+            for (int i = 1; i < label.length; i++) {
+                if (face.get(label[i]) * labelNumScore < minLabelScore) {
                     continue;
                 }
-                labelScore=Math.min(face.get(label[i]) * labelNumScore,maxLabelScore);
+                labelScore = Math.min(face.get(label[i]) * labelNumScore, maxLabelScore);
                 scoreScript.append("else if(doc['labelNum'].value==").append(labelNum.get(i)).append("){return ").append(labelScore).append(";}");
             }
             scoreScript.append("else {return 1.0}");
             //**层层包装填充放到functions中：https://blog.csdn.net/xiaoll880214/article/details/86716393
             ScoreFunctionBuilder<ScriptScoreFunctionBuilder> labelScoreFunction = ScoreFunctionBuilders.scriptFunction(new Script(scoreScript.toString()));
-            FunctionScoreQueryBuilder.FilterFunctionBuilder labelFunction=new FunctionScoreQueryBuilder.FilterFunctionBuilder(labelScoreFunction);
-            filterFunctionBuilders[functionNum]=labelFunction;
+            FunctionScoreQueryBuilder.FilterFunctionBuilder labelFunction = new FunctionScoreQueryBuilder.FilterFunctionBuilder(labelScoreFunction);
+            filterFunctionBuilders[functionNum] = labelFunction;
             functionNum++;
         }
         //2.省份num衰减评分
         //利用衰减函数，设定在给定省份id（仅此id）对应的得分为0.5（以id+偏移量为原点，搜索偏移量范围得分为decay）
-        ScoreFunctionBuilder<LinearDecayFunctionBuilder> provinceScoreFunction = ScoreFunctionBuilders.linearDecayFunction("provinceNum", provinceList.indexOf(province)+0.1, 0.1, 0, 0.5);
-        FunctionScoreQueryBuilder.FilterFunctionBuilder provinceFunction=new FunctionScoreQueryBuilder.FilterFunctionBuilder(provinceScoreFunction);
-        filterFunctionBuilders[functionNum]=provinceFunction;
+        ScoreFunctionBuilder<LinearDecayFunctionBuilder> provinceScoreFunction = ScoreFunctionBuilders.linearDecayFunction("provinceNum", provinceList.indexOf(province) + 0.1, 0.1, 0, 0.5);
+        FunctionScoreQueryBuilder.FilterFunctionBuilder provinceFunction = new FunctionScoreQueryBuilder.FilterFunctionBuilder(provinceScoreFunction);
+        filterFunctionBuilders[functionNum] = provinceFunction;
 
         return filterFunctionBuilders;
     }
 
     /**
      * 自定义评分
+     *
      * @return java.util.List
      * @author gxjh2
      * @date 2024/9/27 10:19:36
-    */
+     */
     @PostMapping("/searchList")
     public List searchList() throws IOException {
         String searchContent = "白雪";
@@ -227,13 +229,10 @@ public class EsController {
         request.source(searchBuilder);
 
 
-
-
-        SearchResponse response =  client.search(request, RequestOptions.DEFAULT);
+        SearchResponse response = client.search(request, RequestOptions.DEFAULT);
         SearchHits hits = response.getHits();
         String searchSource;
-        for (SearchHit hit : hits)
-        {
+        for (SearchHit hit : hits) {
             searchSource = hit.getSourceAsString();
             System.out.println(searchSource);
         }

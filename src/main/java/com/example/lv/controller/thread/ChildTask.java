@@ -28,7 +28,7 @@ public class ChildTask {
      */
     private static final int POOL_SIZE = 3;
     /**
-     *  数据拆分大小
+     * 数据拆分大小
      */
     private static final int SPLIT_SIZE = 4;
     /**
@@ -50,7 +50,7 @@ public class ChildTask {
      */
     public void doExecute() {
         int i = 0;
-        while(true) {
+        while (true) {
             LOGGER.info(taskName + ":Cycle-" + i + "-Begin");
             // 获取数据
             List<Cat> datas = queryData();
@@ -88,7 +88,7 @@ public class ChildTask {
         } catch (InterruptedException e) {
             //重新标记一下线程中断状态
             Thread.currentThread().interrupt();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.getStackTrace();
             LOGGER.info(e.getMessage());
         } finally {
@@ -122,11 +122,11 @@ public class ChildTask {
 
         try {
             latch.await();
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             //重新标记一下线程中断状态
             Thread.currentThread().interrupt();
         } catch (Exception e) {
-            LOGGER.info("异常",e.getStackTrace());
+            LOGGER.info("异常", e.getStackTrace());
         }
     }
 
@@ -137,7 +137,7 @@ public class ChildTask {
         //暂时循环5次
         int num = 5;
         List<Cat> datas = new ArrayList<>();
-        for (int i = 0; i < num; i ++) {
+        for (int i = 0; i < num; i++) {
             datas.add(new Cat().setCatName("小白" + i));
         }
         return datas;

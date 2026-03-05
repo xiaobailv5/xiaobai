@@ -10,18 +10,21 @@ package com.example.lv.designPattern.builderpattern;
 public interface Item {
     /**
      * 名称
+     *
      * @return
      */
     public String name();
 
     /**
      * 包装物
+     *
      * @return
      */
     public Packing packing();
 
     /**
      * 价格
+     *
      * @return
      */
     public float price();

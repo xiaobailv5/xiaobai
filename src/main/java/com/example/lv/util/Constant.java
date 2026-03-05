@@ -11,7 +11,7 @@ public class Constant {
     /**
      * redisKey或redis前缀
      */
-    public static final String LOGIN="login_";
+    public static final String LOGIN = "login_";
 
     /**
      * 工厂模式 枚举

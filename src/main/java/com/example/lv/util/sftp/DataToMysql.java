@@ -22,13 +22,13 @@ public class DataToMysql {
 
     public static void main(String[] args) throws SQLException {
 
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASS)){
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASS)) {
 
 
             String sql = "INSERT INTO test (id, name) VALUES (?, ?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 int id = 1;
-                System.out.println("开始时间"+System.currentTimeMillis());
+                System.out.println("开始时间" + System.currentTimeMillis());
                 while (id <= 1800000) {
 
                     preparedStatement.setLong(1, id);
@@ -36,8 +36,8 @@ public class DataToMysql {
                     preparedStatement.executeUpdate();
                     id++;
                 }
-                System.out.println("结束时间"+System.currentTimeMillis());
-            }catch (Exception e) {
+                System.out.println("结束时间" + System.currentTimeMillis());
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 

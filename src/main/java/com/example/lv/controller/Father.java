@@ -16,11 +16,12 @@ public class Father {
      * 2、参数类别不能变更
      * 3、方法名不能变更
      * 4、返回类型相同或者是子类
+     *
      * @param id
      * @return java.lang.String
      * @author gxjh2
      * @date 2024/7/17 14:12:45
-    */
+     */
     protected String getName(String id) {
 
         return "father-name";

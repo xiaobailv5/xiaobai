@@ -7,7 +7,7 @@ package com.example.lv.designPattern.builderpattern;
  * @description 汉堡
  * @date 2023/6/28 14:48:31
  */
-public abstract class Burger implements Item{
+public abstract class Burger implements Item {
 
     @Override
     public Packing packing() {
@@ -16,6 +16,7 @@ public abstract class Burger implements Item{
 
     /**
      * 价格
+     *
      * @return
      */
     @Override

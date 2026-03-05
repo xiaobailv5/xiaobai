@@ -15,15 +15,15 @@ public class ShapeFactory {
     /**
      * 使用 getShape 方法获取形状类型的对象
      */
-    public Shape getShape(String shapeType){
-        if(StringUtils.isEmpty(shapeType)){
+    public Shape getShape(String shapeType) {
+        if (StringUtils.isEmpty(shapeType)) {
             return null;
         }
-        if(Constant.CIRCLE.equalsIgnoreCase(shapeType)){
+        if (Constant.CIRCLE.equalsIgnoreCase(shapeType)) {
             return new Circle();
-        } else if(Constant.RECTANGLE.equalsIgnoreCase(shapeType)){
+        } else if (Constant.RECTANGLE.equalsIgnoreCase(shapeType)) {
             return new Rectangle();
-        } else if(Constant.SQUARE.equalsIgnoreCase(shapeType)){
+        } else if (Constant.SQUARE.equalsIgnoreCase(shapeType)) {
             return new Square();
         }
         return null;

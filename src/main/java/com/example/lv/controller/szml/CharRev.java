@@ -1,11 +1,11 @@
 package com.example.lv.controller.szml;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 数组反转
- * @author gxjh2
  * @date 2024/10/29 20:24:14
- * @version 1.0
  */
 public class CharRev {
 

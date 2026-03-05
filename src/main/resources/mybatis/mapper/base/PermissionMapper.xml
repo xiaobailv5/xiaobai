@@ -3,7 +3,7 @@
 <mapper namespace="com.example.lv.dao.mapper.base.PermissionDao">
 
     <resultMap id="basePermissionMap" type="com.example.lv.dao.entity.base.Permission">
-        <id  column="per_id" jdbcType="INTEGER" property="perId"/>
+        <id column="per_id" jdbcType="INTEGER" property="perId"/>
         <result column="per_name" jdbcType="VARCHAR" property="perName"/>
         <result column="per_code" jdbcType="VARCHAR" property="perCode"/>
         <result column="per_desc" jdbcType="VARCHAR" property="perDesc"/>

@@ -5,11 +5,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 数据源切换处理
- * @author gxjh2
  * @date 2024/9/22 20:31:28
- * @version 1.0
  */
 public class DynamicDataSourceHolder {
 
@@ -22,6 +22,7 @@ public class DynamicDataSourceHolder {
 
     /**
      * 设置数据源，决定当前线程使用哪个数据源
+     *
      * @param key
      */
     public static void setDynamicDatasourceKey(String key) {
@@ -31,6 +32,7 @@ public class DynamicDataSourceHolder {
 
     /**
      * 获取动态数据源名称，默认使用local数据源
+     *
      * @return
      */
     public static String getDynamicDataSourceKey() {

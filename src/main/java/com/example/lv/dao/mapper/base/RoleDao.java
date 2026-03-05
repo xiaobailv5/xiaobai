@@ -15,6 +15,7 @@ public interface RoleDao {
 
     /**
      * 查询角色信息
+     *
      * @param roleId
      * @return
      */

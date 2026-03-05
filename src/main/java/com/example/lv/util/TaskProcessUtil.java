@@ -18,7 +18,7 @@ public class TaskProcessUtil {
     }
 
     /**
-     *每个任务，都有自己单独的线程池
+     * 每个任务，都有自己单独的线程池
      */
     private static Map<String, ExecutorService> executors = new ConcurrentHashMap<>();
 
@@ -36,7 +36,7 @@ public class TaskProcessUtil {
     /**
      * 获取线程池
      */
-    public static ExecutorService getOrInitExecutors(String poolName,int poolSize) {
+    public static ExecutorService getOrInitExecutors(String poolName, int poolSize) {
         ExecutorService executorService = executors.get(poolName);
         if (null == executorService) {
             synchronized (TaskProcessUtil.class) {

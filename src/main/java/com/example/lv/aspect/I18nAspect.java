@@ -17,11 +17,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 国际化转换切面
- * @author gxjh2
  * @date 2024/9/21 09:19:57
- * @version 1.0
  */
 @Aspect
 @Component
@@ -31,7 +31,8 @@ public class I18nAspect {
      * 切入点 注解的位置
      */
     @Pointcut("@annotation(com.example.lv.aspect.I18nAnnotation)")
-    public void i18nPointCut() {}
+    public void i18nPointCut() {
+    }
 
     @AfterReturning(value = "i18nPointCut()", returning = "returnObject")
     public Object AfterReturning(JoinPoint joinPoint, Object returnObject) {
@@ -52,10 +53,9 @@ public class I18nAspect {
                 List<String> list = Arrays.asList(returnType.split(","));
 
 
-
                 if (list.contains("data")) {
 
-                    Object data =  result.getData();
+                    Object data = result.getData();
                     if (data instanceof List) {
                         JSONArray jsonArray = new JSONArray();
                         jsonArray = JSON.parseArray(JSONObject.toJSONString(data));

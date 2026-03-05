@@ -1,8 +1,6 @@
 package com.example.lv.util;
 
 import org.apache.commons.lang3.StringUtils;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -13,11 +11,11 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 /**
+ * @author lmh
+ * @version 1.0
  * @project xiaobai
  * @description AES  16对应128 24对应192  32对应256
- * @author lmh
  * @date 2023/10/7 09:28:47
- * @version 1.0
  */
 public class AESEncryptUtils {
 
@@ -37,10 +35,8 @@ public class AESEncryptUtils {
     /**
      * 加密
      *
-     * @param str
-     *            需要加密的字符串
-     * @param key
-     *            密钥
+     * @param str 需要加密的字符串
+     * @param key 密钥
      * @return
      * @throws Exception
      */
@@ -63,7 +59,7 @@ public class AESEncryptUtils {
             cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
             byte[] encrypted = cipher.doFinal(str.getBytes("UTF-8"));
             // 此处使用BASE64做转码功能，同时能起到2次加密的作用。
-            return new BASE64Encoder().encode(encrypted);
+            return Base64.getEncoder().encodeToString(encrypted);
         } catch (Exception ex) {
             return null;
         }
@@ -94,7 +90,7 @@ public class AESEncryptUtils {
             Cipher cipher = Cipher.getInstance(AES_PKCS5P);
             cipher.init(Cipher.DECRYPT_MODE, skeySpec);
             // 先用base64解密
-            byte[] encrypted = new BASE64Decoder().decodeBuffer(str);
+            byte[] encrypted = Base64.getDecoder().decode(str);
             try {
                 byte[] original = cipher.doFinal(encrypted);
                 String originalString = new String(original, "UTF-8");
@@ -115,16 +111,17 @@ public class AESEncryptUtils {
      * @throws Exception
      */
     public static String encrypt(String str) {
-        return encrypt(str,AES_DATA_SECURITY_KEY);
+        return encrypt(str, AES_DATA_SECURITY_KEY);
     }
 
     /**
      * 解密
+     *
      * @param str 需要解密的字符串
      * @return
      */
     public static String decrypt(String str) {
-        return decrypt(str,AES_DATA_SECURITY_KEY);
+        return decrypt(str, AES_DATA_SECURITY_KEY);
     }
 
     /**
@@ -160,8 +157,6 @@ public class AESEncryptUtils {
     public static String decryptPersonKey(String personKey) {
         return AESEncryptUtils.decrypt(personKey, AES_PERSON_KEY_SECURITY_KEY);
     }
-
-
 
 
     public static String encrypt2(String plaintext, String key) throws Exception {
@@ -209,6 +204,7 @@ public class AESEncryptUtils {
 
     /**
      * 生成密钥
+     *
      * @return
      */
     public static byte[] generateRandomKeySeed() {
@@ -222,13 +218,6 @@ public class AESEncryptUtils {
         SecretKeySpec secretKey = new SecretKeySpec(keySeed, "AES");
         return secretKey;
     }
-
-
-
-
-
-
-
 
 
     public static void main(String[] args) {
@@ -249,9 +238,6 @@ public class AESEncryptUtils {
             // 打印生成的密钥
             String hexKey = bytesToHex(keyBytes);
             System.out.println(hexKey.length());
-
-
-
 
 
             String plaintext = "Hello, AES!";
@@ -275,8 +261,6 @@ public class AESEncryptUtils {
         }
         return sb.toString();
     }
-
-
 
 
 }

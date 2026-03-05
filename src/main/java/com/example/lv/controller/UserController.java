@@ -35,25 +35,25 @@ public class UserController {
     private IUserService userService;
 
     /**
-     * @PreAuthorize("@ex.hasAuthority('test')")  自定义权限校验方法
-     * @PreAuthorize("hasAuthority('test')")  框架默认方法
      * @param request
      * @return
+     * @PreAuthorize("@ex.hasAuthority('test')") 自定义权限校验方法
+     * @PreAuthorize("hasAuthority('test')") 框架默认方法
      */
     @PostMapping(value = "/getUserList")
-    @OperationAnnotation(action = "getUserList",content = "查询用户列表")
+    @OperationAnnotation(action = "getUserList", content = "查询用户列表")
     @PreAuthorize("@ex.hasAuthority('test')")
     @I18nAnnotation(replaceKey = "userName", returnType = "data", name = "java.util.List")
-    public Result getUserList(@RequestBody UserRequest request){
-        LOGGER.info("getUserList入参"+request);
+    public Result getUserList(@RequestBody UserRequest request) {
+        LOGGER.info("getUserList入参" + request);
         Result result;
         Integer start = request.getStart();
-        if(ObjectUtils.isEmpty(start)){
+        if (ObjectUtils.isEmpty(start)) {
             start = 0;
             request.setStart(start);
         }
         Integer limit = request.getLimit();
-        if(ObjectUtils.isEmpty(limit)){
+        if (ObjectUtils.isEmpty(limit)) {
             limit = 10;
             request.setLimit(limit);
         }
@@ -61,10 +61,10 @@ public class UserController {
             List<User> userList = userService.getUserList(request);
             //查询总条数
             int count = userService.getUserCount(request);
-            Map<String,Object> map = new HashMap<>();
-            map.put("count",count);
-            result = ResultGenerator.getSuccessResult(userList,map);
-        }catch (Exception e){
+            Map<String, Object> map = new HashMap<>();
+            map.put("count", count);
+            result = ResultGenerator.getSuccessResult(userList, map);
+        } catch (Exception e) {
             LOGGER.info(e.getMessage());
             return ResultGenerator.getFailResult(e.getMessage());
         }
@@ -72,11 +72,11 @@ public class UserController {
     }
 
     @PostMapping(value = "/getUserInfo")
-    @OperationAnnotation(action = "getUserInfo",content = "查询用户信息")
+    @OperationAnnotation(action = "getUserInfo", content = "查询用户信息")
     @PreAuthorize("@ex.hasAuthority('test')")
     @I18nAnnotation(replaceKey = "userName", returnType = "data", name = "com.example.lv.dao.entity.base.User")
-    public Result getUserInfo(@RequestBody UserRequest request){
-        LOGGER.info("getUserInfo入参"+request);
+    public Result getUserInfo(@RequestBody UserRequest request) {
+        LOGGER.info("getUserInfo入参" + request);
         Result result;
         String userId = request.getUserId();
         try {
@@ -84,7 +84,7 @@ public class UserController {
             User userInfo = userService.getUserInfo(userId);
 
             result = ResultGenerator.getSuccessResult(userInfo);
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.info(e.getMessage());
             return ResultGenerator.getFailResult(e.getMessage());
         }

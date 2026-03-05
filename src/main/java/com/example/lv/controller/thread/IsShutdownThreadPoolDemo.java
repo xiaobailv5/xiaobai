@@ -5,11 +5,11 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 判断线程池任务执行完成的方式
- * @author gxjh2
  * @date 2024/10/19 20:21:51
- * @version 1.0
  */
 public class IsShutdownThreadPoolDemo {
 
@@ -25,6 +25,7 @@ public class IsShutdownThreadPoolDemo {
 
     /**
      * 随机休眠0到10秒
+     *
      * @param index
      */
     private static void sleepMethod(int index) {
@@ -48,6 +49,7 @@ public class IsShutdownThreadPoolDemo {
      * 方法三：CountDownLatch，使用闭锁计数来判断是否全部完成。
      * 方法四：手动维护一个公共计数，原理和闭锁计数类型，更加灵活。
      * 方法五： Future，使用Future来判断是否执行完成,submit向线程池提交任务。
+     *
      * @param args
      */
     public static void main(String[] args) throws InterruptedException {
@@ -56,13 +58,13 @@ public class IsShutdownThreadPoolDemo {
             pool.execute(() -> sleepMethod(index));
         }*/
         /*
-        * 方法一
-        * shutdown() ：对线程池进行有序关闭。调用该方法后，线程池将不再接受新的任务，但会继续执行已提交的任务。如果线程池已经处于关闭状态，则对该方法的调用没有额外的作用。
-        * isTerminated() ：判断线程池中的所有任务是否在关闭后完成。只有在调用了shutdown()或shutdownNow()方法后，所有任务执行完毕，才会返回true。
-        * 需要注意的是，在调用shutdown()之前调用isTerminated()方法始终返回false。
-        * 优点：操作简单。
-        * 缺点：需要关闭线程池。并且日常使用是将线程池注入到Spring容器，然后各个组件中统一用同一个线程池，不能直接关闭线程池。
-        */
+         * 方法一
+         * shutdown() ：对线程池进行有序关闭。调用该方法后，线程池将不再接受新的任务，但会继续执行已提交的任务。如果线程池已经处于关闭状态，则对该方法的调用没有额外的作用。
+         * isTerminated() ：判断线程池中的所有任务是否在关闭后完成。只有在调用了shutdown()或shutdownNow()方法后，所有任务执行完毕，才会返回true。
+         * 需要注意的是，在调用shutdown()之前调用isTerminated()方法始终返回false。
+         * 优点：操作简单。
+         * 缺点：需要关闭线程池。并且日常使用是将线程池注入到Spring容器，然后各个组件中统一用同一个线程池，不能直接关闭线程池。
+         */
        /* pool.shutdown();
         while (!pool.isTerminated()) {
 
@@ -96,7 +98,7 @@ public class IsShutdownThreadPoolDemo {
          * 方法三：计数器，判断线程是否执行结束
          * 优点：代码优雅，不需要对线程池进行操作。
          * 缺点 ：需要提前知道线程数量；性能较差；还需要在线程代码块内加上异常判断，否则在 countDown之前发生异常而没有处理，就会导致主线程永远阻塞在 await。
-        */
+         */
         /*CountDownLatch taskLatch = new CountDownLatch(10);
         for (int i = 0; i < 10; i++) {
             int index = i;

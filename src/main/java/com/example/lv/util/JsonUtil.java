@@ -10,11 +10,11 @@ import java.text.SimpleDateFormat;
 import java.util.Map;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description json工具类
- * @author gxjh2
  * @date 2024/9/22 08:48:35
- * @version 1.0
  */
 public class JsonUtil {
 
@@ -23,6 +23,7 @@ public class JsonUtil {
     private static ObjectMapper objectMapper;
 
     private static ObjectMapper MAPPER = new ObjectMapper();
+
     static {
         objectMapper = new ObjectMapper();
         objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
@@ -30,6 +31,7 @@ public class JsonUtil {
 
     /**
      * 对象转json字符串
+     *
      * @param object
      * @return
      */
@@ -45,6 +47,7 @@ public class JsonUtil {
 
     /**
      * json转换为对象
+     *
      * @param json
      * @param cls
      * @return
@@ -53,7 +56,7 @@ public class JsonUtil {
 
         try {
             return objectMapper.readValue(json, cls);
-        }catch (Exception e) {
+        } catch (Exception e) {
             logger.error("convertJson2Object", "convert json error" + json, e);
         }
 
@@ -62,6 +65,7 @@ public class JsonUtil {
 
     /**
      * 对象转换为指定对象
+     *
      * @param object
      * @param cls
      * @return
@@ -70,7 +74,7 @@ public class JsonUtil {
 
         try {
             return objectMapper.convertValue(object, cls);
-        }catch (Exception e) {
+        } catch (Exception e) {
             logger.error("convertObject2Object", "convert json error" + object, e);
         }
 
@@ -79,18 +83,20 @@ public class JsonUtil {
 
     /**
      * json转换成map
+     *
      * @param str
-     * @return
      * @param <K>
      * @param <V>
+     * @return
      */
-    public static <K, V> Map<K,V> toMap(String str) {
+    public static <K, V> Map<K, V> toMap(String str) {
 
         try {
             if (StringUtils.isEmpty(str)) {
                 return null;
             }
-            return toObject(str, new TypeReference<Map<K, V>>() {});
+            return toObject(str, new TypeReference<Map<K, V>>() {
+            });
 
         } catch (Exception e) {
             logger.error("toMap", e.getMessage(), e);
@@ -105,7 +111,7 @@ public class JsonUtil {
                 return null;
             }
             return (T) (typeReference.getType().equals(String.class) ? str : MAPPER.readValue(str, typeReference));
-        }catch (Exception e) {
+        } catch (Exception e) {
             logger.error("toObject", e.getMessage(), e);
         }
         return null;

@@ -10,6 +10,7 @@ package com.example.lv.designPattern.builderpattern;
 public interface Packing {
     /**
      * 包装材料
+     *
      * @return
      */
     public String pack();

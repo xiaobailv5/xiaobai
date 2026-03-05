@@ -10,12 +10,12 @@ import org.slf4j.LoggerFactory;
  * @description 鸟
  * @date 2023/7/7 15:05:29
  */
-public class Bird extends Animal{
+public class Bird extends Animal {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Bird.class);
 
     public Bird() {
-        type="Bird";
+        type = "Bird";
     }
 
     @Override

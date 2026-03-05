@@ -40,10 +40,10 @@ public class LoginServiceImpl implements ILoginService {
     @Override
     public Result login(LoginRequest request) {
         //用户认证
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(),request.getPassword());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         //认证不通过
-        if(ObjectUtils.isEmpty(authenticate)){
+        if (ObjectUtils.isEmpty(authenticate)) {
             throw new RuntimeException("登录失败");
         }
         //认证通过 用userId生成jwt
@@ -52,14 +52,15 @@ public class LoginServiceImpl implements ILoginService {
         String userId = String.valueOf(loginUser.getUser().getUserId());
         String jwt = JwtUtil.createJWT(userId);
         //user信息存入redis 5分钟
-        redisUtil.setObject(Constant.LOGIN+userId,loginUser,300, TimeUnit.SECONDS);
-        Map<String,Object> map = new HashMap<>(2);
-        map.put("token",jwt);
+        redisUtil.setObject(Constant.LOGIN + userId, loginUser, 300, TimeUnit.SECONDS);
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("token", jwt);
         return ResultGenerator.getSuccessBeanResult(map);
     }
 
     /**
      * 退出登录
+     *
      * @return
      */
     @Override
@@ -68,7 +69,7 @@ public class LoginServiceImpl implements ILoginService {
         LoginUser loginUser = (LoginUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Integer userId = loginUser.getUser().getUserId();
         //删除redis中的用户
-        String redisKey = Constant.LOGIN+userId;
+        String redisKey = Constant.LOGIN + userId;
         redisUtil.deleteObject(redisKey);
 
         return ResultGenerator.getSuccessResult();

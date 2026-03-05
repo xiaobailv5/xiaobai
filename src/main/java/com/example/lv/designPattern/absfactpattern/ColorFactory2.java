@@ -15,21 +15,21 @@ import org.apache.commons.lang3.StringUtils;
  * @description 颜色工厂
  * @date 2023/6/28 09:35:26
  */
-public class ColorFactory2 extends AbstractFactory{
+public class ColorFactory2 extends AbstractFactory {
 
     /**
      * 使用 getColor 方法获取颜色的对象
      */
     @Override
-    public Color getColor(String colorType){
-        if(StringUtils.isEmpty(colorType)){
+    public Color getColor(String colorType) {
+        if (StringUtils.isEmpty(colorType)) {
             return null;
         }
-        if(Constant.RED.equalsIgnoreCase(colorType)){
+        if (Constant.RED.equalsIgnoreCase(colorType)) {
             return new Red();
-        } else if(Constant.GREEN.equalsIgnoreCase(colorType)){
+        } else if (Constant.GREEN.equalsIgnoreCase(colorType)) {
             return new Green();
-        } else if(Constant.BLUE.equalsIgnoreCase(colorType)){
+        } else if (Constant.BLUE.equalsIgnoreCase(colorType)) {
             return new Blue();
         }
         return null;

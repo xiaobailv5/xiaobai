@@ -101,7 +101,7 @@ public class SFTPToDatabase {
                     // Assuming the line is formatted as "value1,value2"
                     String[] values = line.split(",");
                     preparedStatement.setString(1, values[0].trim());
-                    if (values.length>1) {
+                    if (values.length > 1) {
                         preparedStatement.setString(2, values[1].trim());
                     } else {
                         preparedStatement.setString(2, "");

@@ -6,11 +6,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 国际化转换注解
- * @author gxjh2
  * @date 2024/9/21 09:11:37
- * @version 1.0
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

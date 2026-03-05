@@ -19,7 +19,7 @@ public class MyThread extends Thread {
     @Override
     public void run() {
 
-        while (!stop){
+        while (!stop) {
             System.out.println(getName() + "is running");
 
             try {

@@ -53,7 +53,7 @@ spring:
         connection-timeout: 30000
         # 连接测试query
         connection-test-query: SELECT
-# redis
+  # redis
   redis:
     host: 127.0.0.1
     password:

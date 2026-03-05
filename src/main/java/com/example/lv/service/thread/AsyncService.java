@@ -5,11 +5,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 异步线程接口  异步方法
- * @author gxjh2
  * @date 2024/10/19 15:57:03
- * @version 1.0
  */
 public interface AsyncService {
 
@@ -22,6 +22,7 @@ public interface AsyncService {
 
     /**
      * 发送短信
+     *
      * @param mobile
      * @param content
      */
@@ -29,6 +30,7 @@ public interface AsyncService {
 
     /**
      * 发送邮件
+     *
      * @param email
      * @param content
      */
@@ -36,6 +38,7 @@ public interface AsyncService {
 
     /**
      * 发送验证码
+     *
      * @param mobile
      * @return
      * @throws InterruptedException
@@ -49,6 +52,7 @@ public interface AsyncService {
 
     /**
      * 异步保存任务
+     *
      * @param blockTaskList
      * @param countDownLatch
      */

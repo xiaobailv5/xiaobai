@@ -30,7 +30,7 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Result badRequestException(IllegalArgumentException ex) {
         LOGGER.info("参数格式不合法：{}", ex.getMessage());
-        return new Result(HttpStatus.BAD_REQUEST.value() , "参数格式不符！");
+        return new Result(HttpStatus.BAD_REQUEST.value(), "参数格式不符！");
     }
 
     /**
@@ -40,7 +40,7 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public Result badRequestException(AccessDeniedException ex) {
 
-        return new Result(HttpStatus.FORBIDDEN.value() , ex.getMessage());
+        return new Result(HttpStatus.FORBIDDEN.value(), ex.getMessage());
     }
 
     /**
@@ -59,11 +59,12 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public Result handleTypeMismatchException(NullPointerException ex) {
         LOGGER.info("空指针异常，{}", ex.getMessage());
-        return new Result(HttpStatus.INTERNAL_SERVER_ERROR.value(),"空指针异常");
+        return new Result(HttpStatus.INTERNAL_SERVER_ERROR.value(), "空指针异常");
     }
 
     /**
      * 系统发生异常 500
+     *
      * @param ex
      * @return
      */
@@ -71,7 +72,7 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public Result handleUnexpectedServer(Exception ex) {
         LOGGER.info("系统异常：", ex);
-        return new Result(HttpStatus.INTERNAL_SERVER_ERROR.value(),"系统发生异常，请联系管理员");
+        return new Result(HttpStatus.INTERNAL_SERVER_ERROR.value(), "系统发生异常，请联系管理员");
     }
 
     /**
@@ -81,6 +82,6 @@ public class ExceptionHandlerAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Result exception(Throwable throwable) {
         LOGGER.info("系统异常", throwable);
-        return new Result(HttpStatus.INTERNAL_SERVER_ERROR.value(),"系统异常，请联系管理员！");
+        return new Result(HttpStatus.INTERNAL_SERVER_ERROR.value(), "系统异常，请联系管理员！");
     }
 }

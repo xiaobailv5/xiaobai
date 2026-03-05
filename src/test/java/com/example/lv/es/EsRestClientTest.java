@@ -49,19 +49,19 @@ import java.io.IOException;
  */
 public class EsRestClientTest {
 
-    public  static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
         // ================== 创建索引
 
         // 创建对象
         RestHighLevelClient restClient = new RestHighLevelClient(RestClient
-        .builder(new HttpHost("127.0.0.1",9200)));
+                .builder(new HttpHost("127.0.0.1", 9200)));
         /**
          * 1创建索引 2 获取索引信息 3 删除索引 4 新增数据 5 修改数据 6 简单查询 7 高级查询
          * 8 删除数据 9 批量新增数据 10 全量查询 11 简单条件查询 12 分页查询
          * 13 排序查询 14 指定字段返回 15 多条件查询 16 区范围查询 17 模糊查询
          * 18 高亮查询 19 聚合查询
-        */
+         */
         int num = 1;
         switch (num) {
             case 1:
@@ -138,7 +138,7 @@ public class EsRestClientTest {
                 // 创建索数据
                 UpdateRequest updateRequest = new UpdateRequest();
                 updateRequest.index("user").id("1112");
-                updateRequest.doc(XContentType.JSON,"sex","女");
+                updateRequest.doc(XContentType.JSON, "sex", "女");
                 // index 执行 创建索引数据
                 UpdateResponse update = restClient.update(updateRequest, RequestOptions.DEFAULT);
                 // 获取请求 结果
@@ -187,19 +187,19 @@ public class EsRestClientTest {
 
                 // 批量
                 BulkRequest bulkRequest = new BulkRequest();
-                bulkRequest.add(new IndexRequest().index("user").id("10001").source("name","zhangsan","age","60","add","河南省郑州市","sex","男"));
-                bulkRequest.add(new IndexRequest().index("user").id("10002").source("name","zhangsan2","age","44","add","河南省郑州市","sex","女"));
-                bulkRequest.add(new IndexRequest().index("user").id("10003").source("name","zhangsan3","age","55","add","河南省郑州市","sex","男"));
-                bulkRequest.add(new IndexRequest().index("user").id("10004").source("name","zhangsan4","age","33","add","河南省郑州市","sex","女"));
-                bulkRequest.add(new IndexRequest().index("user").id("10005").source("name","zhangsan5","age","88","add","河南省郑州市","sex","男"));
-                bulkRequest.add(new IndexRequest().index("user").id("10006").source("name","zhangsan5","age","45","add","河南省郑州市","sex","男"));
+                bulkRequest.add(new IndexRequest().index("user").id("10001").source("name", "zhangsan", "age", "60", "add", "河南省郑州市", "sex", "男"));
+                bulkRequest.add(new IndexRequest().index("user").id("10002").source("name", "zhangsan2", "age", "44", "add", "河南省郑州市", "sex", "女"));
+                bulkRequest.add(new IndexRequest().index("user").id("10003").source("name", "zhangsan3", "age", "55", "add", "河南省郑州市", "sex", "男"));
+                bulkRequest.add(new IndexRequest().index("user").id("10004").source("name", "zhangsan4", "age", "33", "add", "河南省郑州市", "sex", "女"));
+                bulkRequest.add(new IndexRequest().index("user").id("10005").source("name", "zhangsan5", "age", "88", "add", "河南省郑州市", "sex", "男"));
+                bulkRequest.add(new IndexRequest().index("user").id("10006").source("name", "zhangsan5", "age", "45", "add", "河南省郑州市", "sex", "男"));
 
-                bulkRequest.add(new IndexRequest().index("user").id("10007").source("name","zhangsan7","age","55","add","河南省郑州市","sex","男"));
+                bulkRequest.add(new IndexRequest().index("user").id("10007").source("name", "zhangsan7", "age", "55", "add", "河南省郑州市", "sex", "男"));
 
-                bulkRequest.add(new IndexRequest().index("user").id("10008").source("name","zhangsan44","age","45","add","河南省郑州市","sex","男"));
-                bulkRequest.add(new IndexRequest().index("user").id("10009").source("name","zhangsan33","age","45","add","河南省郑州市","sex","女"));
-                bulkRequest.add(new IndexRequest().index("user").id("10010").source("name","zhangsa55","age","45","add","河南省郑州市","sex","女"));
-                bulkRequest.add(new IndexRequest().index("user").id("10011").source("name","zhangsan555","age","45","add","河南省郑州市","sex","男"));
+                bulkRequest.add(new IndexRequest().index("user").id("10008").source("name", "zhangsan44", "age", "45", "add", "河南省郑州市", "sex", "男"));
+                bulkRequest.add(new IndexRequest().index("user").id("10009").source("name", "zhangsan33", "age", "45", "add", "河南省郑州市", "sex", "女"));
+                bulkRequest.add(new IndexRequest().index("user").id("10010").source("name", "zhangsa55", "age", "45", "add", "河南省郑州市", "sex", "女"));
+                bulkRequest.add(new IndexRequest().index("user").id("10011").source("name", "zhangsan555", "age", "45", "add", "河南省郑州市", "sex", "男"));
 
                 // index 执行 删除
                 BulkResponse bulk = restClient.bulk(bulkRequest, RequestOptions.DEFAULT);
@@ -241,7 +241,7 @@ public class EsRestClientTest {
                 // 获取请求 结果
 
                 System.out.println(search.getHits().getTotalHits());
-                for (SearchHit hit:search.getHits()){
+                for (SearchHit hit : search.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
                 restClient.close();
@@ -256,7 +256,7 @@ public class EsRestClientTest {
                 SearchRequest searchRequest2 = new SearchRequest();
                 searchRequest2.indices("user");
 
-                SearchSourceBuilder searchSourceBuilder2 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex","女"));
+                SearchSourceBuilder searchSourceBuilder2 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex", "女"));
                 searchRequest2.source(searchSourceBuilder2);
 
                 // index 执行查询
@@ -264,7 +264,7 @@ public class EsRestClientTest {
                 // 获取请求 结果
 
                 System.out.println(search2.getHits().getTotalHits());
-                for (SearchHit hit:search2.getHits()){
+                for (SearchHit hit : search2.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
 
@@ -279,7 +279,7 @@ public class EsRestClientTest {
                 SearchRequest searchRequest3 = new SearchRequest();
                 searchRequest3.indices("user");
 
-                SearchSourceBuilder searchSourceBuilder3 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex","男"));
+                SearchSourceBuilder searchSourceBuilder3 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex", "男"));
                 searchSourceBuilder3.from(0);
                 searchSourceBuilder3.size(2);
                 searchRequest3.source(searchSourceBuilder3);
@@ -289,7 +289,7 @@ public class EsRestClientTest {
                 // 获取请求 结果
 
                 System.out.println(search3.getHits().getTotalHits());
-                for (SearchHit hit:search3.getHits()){
+                for (SearchHit hit : search3.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
                 restClient.close();
@@ -303,7 +303,7 @@ public class EsRestClientTest {
                 SearchRequest searchRequest4 = new SearchRequest();
                 searchRequest4.indices("user");
 
-                SearchSourceBuilder searchSourceBuilder4 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex","男"));
+                SearchSourceBuilder searchSourceBuilder4 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex", "男"));
                 searchSourceBuilder4.sort("age", SortOrder.DESC);
                 searchSourceBuilder4.from(0);
                 searchSourceBuilder4.size(2);
@@ -313,7 +313,7 @@ public class EsRestClientTest {
                 // 获取请求 结果
 
                 System.out.println(search4.getHits().getTotalHits());
-                for (SearchHit hit:search4.getHits()){
+                for (SearchHit hit : search4.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
                 // 关闭连接
@@ -326,12 +326,12 @@ public class EsRestClientTest {
                 SearchRequest searchRequest5 = new SearchRequest();
                 searchRequest5.indices("user");
 
-                SearchSourceBuilder searchSourceBuilder5 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex","男"));
+                SearchSourceBuilder searchSourceBuilder5 = new SearchSourceBuilder().query(QueryBuilders.termQuery("sex", "男"));
 
-                String[] excludes ={"add"};
-                String[] includes ={"age","name"}; // 优先级高
+                String[] excludes = {"add"};
+                String[] includes = {"age", "name"}; // 优先级高
 
-                searchSourceBuilder5.fetchSource(includes,excludes);
+                searchSourceBuilder5.fetchSource(includes, excludes);
 
                 searchSourceBuilder5.sort("age", SortOrder.DESC);
                 searchSourceBuilder5.from(0);
@@ -343,7 +343,7 @@ public class EsRestClientTest {
                 // 获取请求 结果
 
                 System.out.println(search5.getHits().getTotalHits());
-                for (SearchHit hit:search5.getHits()){
+                for (SearchHit hit : search5.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
                 // 关闭连接
@@ -359,9 +359,9 @@ public class EsRestClientTest {
                 searchRequest6.indices("user");
 
                 BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
-                boolQueryBuilder.must(QueryBuilders.matchQuery("age","45").boost(20));
-                boolQueryBuilder.mustNot(QueryBuilders.matchQuery("sex","男"));
-                boolQueryBuilder.should(QueryBuilders.matchQuery("add","河南省郑州市"));
+                boolQueryBuilder.must(QueryBuilders.matchQuery("age", "45").boost(20));
+                boolQueryBuilder.mustNot(QueryBuilders.matchQuery("sex", "男"));
+                boolQueryBuilder.should(QueryBuilders.matchQuery("add", "河南省郑州市"));
 
                 SearchSourceBuilder searchSourceBuilder6 = new SearchSourceBuilder().query(boolQueryBuilder);
 
@@ -372,7 +372,7 @@ public class EsRestClientTest {
                 SearchResponse search6 = restClient.search(searchRequest6, RequestOptions.DEFAULT);
                 // 获取请求 结果
                 System.out.println(search6.getHits().getTotalHits());
-                for (SearchHit hit:search6.getHits()){
+                for (SearchHit hit : search6.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
                 // 关闭连接
@@ -401,7 +401,7 @@ public class EsRestClientTest {
                 SearchResponse search7 = restClient.search(searchRequest7, RequestOptions.DEFAULT);
                 // 获取请求 结果
                 System.out.println(search7.getHits().getTotalHits());
-                for (SearchHit hit:search7.getHits()){
+                for (SearchHit hit : search7.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
                 // 关闭连接
@@ -428,7 +428,7 @@ public class EsRestClientTest {
                 SearchResponse search8 = restClient.search(searchRequest8, RequestOptions.DEFAULT);
                 // 获取请求 结果
                 System.out.println(search8.getHits().getTotalHits());
-                for (SearchHit hit:search8.getHits()){
+                for (SearchHit hit : search8.getHits()) {
                     System.out.println(hit.getSourceAsString());
                 }
                 // 关闭连接
@@ -459,7 +459,7 @@ public class EsRestClientTest {
                 SearchResponse search9 = restClient.search(searchRequest9, RequestOptions.DEFAULT);
                 // 获取请求 结果
                 System.out.println(search9.getHits().getTotalHits());
-                for (SearchHit hit:search9.getHits()){
+                for (SearchHit hit : search9.getHits()) {
                     System.out.println(hit.getSourceAsString());
                     System.out.println(hit.getHighlightFields());
 
@@ -490,10 +490,10 @@ public class EsRestClientTest {
                 for (Terms.Bucket buck : byAgeAggregation.getBuckets()) {
                     long docCount = buck.getDocCount();
                     String keyAsString = buck.getKeyAsString();
-                    System.out.println("年龄："+keyAsString+" 聚合数量："+docCount);
+                    System.out.println("年龄：" + keyAsString + " 聚合数量：" + docCount);
                 }
 
-                for (SearchHit hit:searchResponse.getHits()){
+                for (SearchHit hit : searchResponse.getHits()) {
                     System.out.println(hit.getSourceAsString());
 
                 }
@@ -508,22 +508,11 @@ public class EsRestClientTest {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }
 
- class User {
+class User {
     private String name;
     private Integer age;
     private String address;
@@ -549,15 +538,17 @@ public class EsRestClientTest {
         return address;
     }
 
-    public void setAddress(String address){
+    public void setAddress(String address) {
         this.address = address;
     }
+
     public String getSex() {
         return sex;
     }
+
     public void setSex(String sex) {
         this.sex = sex;
     }
 
 
- }
+}

@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequestMapping("synchronized")
 public class SynchronizedControllerTest {
 
-    private static final Logger LOGGER =LoggerFactory.getLogger(SynchronizedControllerTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SynchronizedControllerTest.class);
 
     @RequestMapping("/saving")
     public String saving(String school) {
@@ -56,7 +56,6 @@ public class SynchronizedControllerTest {
         String intern = str.intern();
 
         System.out.println(intern);
-
 
 
     }

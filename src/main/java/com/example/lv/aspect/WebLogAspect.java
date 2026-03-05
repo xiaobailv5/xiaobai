@@ -67,26 +67,27 @@ public class WebLogAspect {
      * 切入点 注解的位置
      */
     @Pointcut("@annotation(com.example.lv.aspect.OperationAnnotation)")
-    public void logPointCut() {}
+    public void logPointCut() {
+    }
 
     /**
      * @param joinPoint
      * @Description 前置通知  方法调用前触发   记录开始时间,从session中获取操作人
      */
-    @Before(value="logPointCut()")
-    public void before(JoinPoint joinPoint){
+    @Before(value = "logPointCut()")
+    public void before(JoinPoint joinPoint) {
         startTimeMillis = System.currentTimeMillis();
     }
 
     /**
      * @param joinPoint
-     * @Description 获取入参方法参数
      * @return
+     * @Description 获取入参方法参数
      */
     public Map<String, Object> getNameAndValue(JoinPoint joinPoint) {
         Map<String, Object> param = new HashMap<>(16);
         Object[] paramValues = joinPoint.getArgs();
-        param.put("params",paramValues[0].toString());
+        param.put("params", paramValues[0].toString());
         return param;
     }
 
@@ -94,7 +95,7 @@ public class WebLogAspect {
      * @param joinPoint
      * @Description 后置通知    方法调用后触发   记录结束时间 ,操作人 ,入参等
      */
-    @After(value="logPointCut()")
+    @After(value = "logPointCut()")
     public void after(JoinPoint joinPoint) {
         request = getHttpServletRequest();
         String targetName = joinPoint.getTarget().getClass().getName();
@@ -119,10 +120,10 @@ public class WebLogAspect {
         for (Method m : methods) {
             if (m.getName().equals(methodName)) {
                 clazzs = m.getParameterTypes();
-                if (clazzs!=null&&clazzs.length == arguments.length
-                        &&m.getAnnotation(OperationAnnotation.class)!=null) {
+                if (clazzs != null && clazzs.length == arguments.length
+                        && m.getAnnotation(OperationAnnotation.class) != null) {
                     request = getHttpServletRequest();
-                    requestPath=request.getServletPath();
+                    requestPath = request.getServletPath();
                     HttpSession session = request.getSession();
                     SecurityContext securityContext = (SecurityContext) session.getAttribute("SPRING_SECURITY_CONTEXT");
                     LoginUser loginUser = (LoginUser) securityContext.getAuthentication().getPrincipal();
@@ -133,21 +134,22 @@ public class WebLogAspect {
                     opType = m.getAnnotation(OperationAnnotation.class).opType();
                     endTimeMillis = System.currentTimeMillis();
 
-                    SysLog log=new SysLog(operationUser, requestPath, (endTimeMillis-startTimeMillis)+"ms",
-                            getNameAndValue(joinPoint).toString(), remark, method,sysType,opType,new Date(),new Date());
-                    LOGGER.info("增加参数："+log);
+                    SysLog log = new SysLog(operationUser, requestPath, (endTimeMillis - startTimeMillis) + "ms",
+                            getNameAndValue(joinPoint).toString(), remark, method, sysType, opType, new Date(), new Date());
+                    LOGGER.info("增加参数：" + log);
                     logMapper.insert(log);
 
                 }
             }
         }
     }
+
     /**
      * @Description: 获取request
      */
-    public HttpServletRequest getHttpServletRequest(){
+    public HttpServletRequest getHttpServletRequest() {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
-        ServletRequestAttributes sra = (ServletRequestAttributes)ra;
+        ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
         return request;
     }
@@ -160,6 +162,7 @@ public class WebLogAspect {
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         return null;
     }
+
     /**
      * @param joinPoint
      * @Description 异常通知

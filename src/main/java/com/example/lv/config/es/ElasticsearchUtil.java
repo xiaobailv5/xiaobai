@@ -65,11 +65,12 @@ public class ElasticsearchUtil {
 
     /**
      * 创建索引
+     *
      * @param index 索引
      * @return
      */
     public boolean createIndex(String index) throws IOException {
-        if(isIndexExist(index)){
+        if (isIndexExist(index)) {
             LOGGER.info("Index is exits!");
             return false;
         }
@@ -78,7 +79,7 @@ public class ElasticsearchUtil {
         //2.执行客户端请求
         CreateIndexResponse response = client.indices().create(request, RequestOptions.DEFAULT);
 
-        LOGGER.info("创建索引{}成功",index);
+        LOGGER.info("创建索引{}成功", index);
 
         return response.isAcknowledged();
     }
@@ -90,7 +91,7 @@ public class ElasticsearchUtil {
      * @return
      */
     public boolean deleteIndex(String index) throws IOException {
-        if(!isIndexExist(index)) {
+        if (!isIndexExist(index)) {
             LOGGER.info("Index is not exits!");
             return false;
         }
@@ -99,11 +100,10 @@ public class ElasticsearchUtil {
         //执行客户端请求
         AcknowledgedResponse delete = client.indices().delete(request, RequestOptions.DEFAULT);
 
-        LOGGER.info("删除索引{}成功",index);
+        LOGGER.info("删除索引{}成功", index);
 
         return delete.isAcknowledged();
     }
-
 
 
     /**
@@ -117,10 +117,9 @@ public class ElasticsearchUtil {
         GetIndexRequest request = new GetIndexRequest(index);
 
         boolean exists = client.indices().exists(request, RequestOptions.DEFAULT);
-        LOGGER.info("exists"+exists);
+        LOGGER.info("exists" + exists);
         return exists;
     }
-
 
 
     /**
@@ -140,13 +139,12 @@ public class ElasticsearchUtil {
         request.timeout(TimeValue.timeValueSeconds(1));
         //将数据放入请求 json
         IndexRequest source = request.source(jsonObject, XContentType.JSON);
-        LOGGER.info("source==json"+source);
+        LOGGER.info("source==json" + source);
         //客户端发送请求
         IndexResponse response = client.index(request, RequestOptions.DEFAULT);
-        LOGGER.info("添加数据成功 索引为: {}, response 状态: {}, id为: {}",index,response.status().getStatus(), response.getId());
+        LOGGER.info("添加数据成功 索引为: {}, response 状态: {}, id为: {}", index, response.status().getStatus(), response.getId());
         return response.getId();
     }
-
 
 
     /**
@@ -171,17 +169,17 @@ public class ElasticsearchUtil {
         DeleteRequest request = new DeleteRequest(index, id);
         //执行客户端请求
         DeleteResponse delete = client.delete(request, RequestOptions.DEFAULT);
-        LOGGER.info("delete+++结果"+delete);
-        LOGGER.info("索引为: {}, id为: {}删除数据成功",index, id);
+        LOGGER.info("delete+++结果" + delete);
+        LOGGER.info("索引为: {}, id为: {}删除数据成功", index, id);
     }
 
 
     /**
      * 通过ID 更新数据
      *
-     * @param object     要增加的数据
-     * @param index      索引，类似数据库
-     * @param id         数据ID
+     * @param object 要增加的数据
+     * @param index  索引，类似数据库
+     * @param id     数据ID
      * @return
      */
     public void updateDataById(Object object, String index, String id) throws IOException {
@@ -196,17 +194,17 @@ public class ElasticsearchUtil {
         update.doc(JSON.toJSONString(object), XContentType.JSON);
         //执行更新请求
         UpdateResponse update1 = client.update(update, RequestOptions.DEFAULT);
-        LOGGER.info("update1===="+update1);
-        LOGGER.info("索引为: {}, id为: {}, 更新数据成功",index, id);
+        LOGGER.info("update1====" + update1);
+        LOGGER.info("索引为: {}, id为: {}, 更新数据成功", index, id);
     }
 
 
     /**
      * 通过ID 更新数据,保证实时性
      *
-     * @param object     要增加的数据
-     * @param index      索引，类似数据库
-     * @param id         数据ID
+     * @param object 要增加的数据
+     * @param index  索引，类似数据库
+     * @param id     数据ID
      * @return
      */
     public void updateDataByIdNoRealTime(Object object, String index, String id) throws IOException {
@@ -220,8 +218,8 @@ public class ElasticsearchUtil {
         update.doc(JSON.toJSONString(object), XContentType.JSON);
         //执行更新请求
         UpdateResponse update1 = client.update(update, RequestOptions.DEFAULT);
-        LOGGER.info("update1===="+update1);
-        LOGGER.info("索引为: {}, id为: {}, 更新数据成功",index, id);
+        LOGGER.info("update1====" + update1);
+        LOGGER.info("索引为: {}, id为: {}, 更新数据成功", index, id);
     }
 
 
@@ -233,26 +231,27 @@ public class ElasticsearchUtil {
      * @param fields 需要显示的字段，逗号分隔（缺省为全部字段）
      * @return
      */
-    public Map<String,Object> searchDataById(String index, String id, String fields) throws IOException {
+    public Map<String, Object> searchDataById(String index, String id, String fields) throws IOException {
         GetRequest request = new GetRequest(index, id);
-        if (StringUtils.isNotEmpty(fields)){
+        if (StringUtils.isNotEmpty(fields)) {
             //只查询特定字段。如果需要查询所有字段则不设置该项。
-            request.fetchSourceContext(new FetchSourceContext(true,fields.split(","), Strings.EMPTY_ARRAY));
+            request.fetchSourceContext(new FetchSourceContext(true, fields.split(","), Strings.EMPTY_ARRAY));
         }
         GetResponse response = client.get(request, RequestOptions.DEFAULT);
         Map<String, Object> map = response.getSource();
         //为返回的数据添加id
-        map.put("id",response.getId());
+        map.put("id", response.getId());
         return map;
     }
 
     /**
      * 通过ID判断文档是否存在
-     * @param index  索引，类似数据库
-     * @param id     数据ID
+     *
+     * @param index 索引，类似数据库
+     * @param id    数据ID
      * @return
      */
-    public  boolean existsById(String index,String id) throws IOException {
+    public boolean existsById(String index, String id) throws IOException {
         GetRequest request = new GetRequest(index, id);
         //不获取返回的_source的上下文
         request.fetchSourceContext(new FetchSourceContext(false));
@@ -262,6 +261,7 @@ public class ElasticsearchUtil {
 
     /**
      * 获取低水平客户端
+     *
      * @return
      */
     public RestClient getLowLevelClient() {
@@ -272,12 +272,13 @@ public class ElasticsearchUtil {
     /**
      * 高亮结果集 特殊处理
      * map转对象 JSONObject.parseObject(JSONObject.toJSONString(map), Content.class)
+     *
      * @param searchResponse
      * @param highlightField
      */
     public List<Map<String, Object>> setSearchResponse(SearchResponse searchResponse, String highlightField) {
         //解析结果
-        ArrayList<Map<String,Object>> list = new ArrayList<>();
+        ArrayList<Map<String, Object>> list = new ArrayList<>();
         for (SearchHit hit : searchResponse.getHits().getHits()) {
             Map<String, HighlightField> high = hit.getHighlightFields();
             HighlightField title = high.get(highlightField);
@@ -286,14 +287,14 @@ public class ElasticsearchUtil {
             //原来的结果
             Map<String, Object> sourceAsMap = hit.getSourceAsMap();
             //解析高亮字段,将原来的字段换为高亮字段
-            if (title!=null){
+            if (title != null) {
                 Text[] texts = title.fragments();
                 StringBuilder nTitle = new StringBuilder();
                 for (Text text : texts) {
                     nTitle.append(text);
                 }
                 //替换
-                sourceAsMap.put(highlightField,nTitle);
+                sourceAsMap.put(highlightField, nTitle);
             }
             list.add(sourceAsMap);
         }
@@ -303,6 +304,7 @@ public class ElasticsearchUtil {
 
     /**
      * 查询并分页
+     *
      * @param index          索引名称
      * @param query          查询条件
      * @param size           文档大小限制
@@ -321,17 +323,17 @@ public class ElasticsearchUtil {
                                                     String highlightField) throws IOException {
         SearchRequest request = new SearchRequest(index);
         SearchSourceBuilder builder = query;
-        if (StringUtils.isNotEmpty(fields)){
+        if (StringUtils.isNotEmpty(fields)) {
             //只查询特定字段。如果需要查询所有字段则不设置该项。
-            builder.fetchSource(new FetchSourceContext(true,fields.split(","),Strings.EMPTY_ARRAY));
+            builder.fetchSource(new FetchSourceContext(true, fields.split(","), Strings.EMPTY_ARRAY));
         }
-        from = from <= 0 ? 0 : from*size;
+        from = from <= 0 ? 0 : from * size;
         //设置确定结果要从哪个索引开始搜索的from选项，默认为0
         builder.from(from);
         builder.size(size);
-        if (StringUtils.isNotEmpty(sortField)){
+        if (StringUtils.isNotEmpty(sortField)) {
             //排序字段，注意如果proposal_no是text类型会默认带有keyword性质，需要拼接.keyword
-            builder.sort(sortField+KEYWORD, SortOrder.ASC);
+            builder.sort(sortField + KEYWORD, SortOrder.ASC);
         }
         //高亮
         HighlightBuilder highlight = new HighlightBuilder();
@@ -344,7 +346,7 @@ public class ElasticsearchUtil {
         /*不返回源数据。只有条数之类的数据。fetchSource(false)设置为false */
         request.source(builder);
         SearchResponse response = client.search(request, RequestOptions.DEFAULT);
-        LOGGER.info("=="+response.getHits().getTotalHits());
+        LOGGER.info("==" + response.getHits().getTotalHits());
         if (response.status().getStatus() == 200) {
             // 解析对象
             return setSearchResponse(response, highlightField);
@@ -354,12 +356,13 @@ public class ElasticsearchUtil {
 
     /**
      * 查询索引
+     *
      * @param indexName
      * @param query
      * @return org.elasticsearch.action.search.SearchResponse
      * @author gxjh2
      * @date 2024/9/23 20:54:53
-    */
+     */
     public SearchResponse search(String indexName, String query) throws IOException {
         // 创建SearchRequest
         SearchRequest searchRequest = new SearchRequest(indexName);

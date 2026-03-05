@@ -10,11 +10,11 @@ import org.slf4j.LoggerFactory;
  * @description 狗狗
  * @date 2023/7/7 14:51:49
  */
-public class Dog extends Animal{
+public class Dog extends Animal {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Dog.class);
 
-    public Dog(){
+    public Dog() {
         type = "Dog";
     }
 

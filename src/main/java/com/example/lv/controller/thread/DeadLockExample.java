@@ -95,7 +95,7 @@ public class DeadLockExample {
                     lock1.unlock();
                 }
             }
-        }catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

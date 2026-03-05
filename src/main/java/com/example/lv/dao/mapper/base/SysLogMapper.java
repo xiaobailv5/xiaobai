@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 public interface SysLogMapper {
     /**
      * 根据id删除日志记录
+     *
      * @param id
      * @return int
      */
@@ -16,6 +17,7 @@ public interface SysLogMapper {
 
     /**
      * 新增日志
+     *
      * @param log
      * @return
      */

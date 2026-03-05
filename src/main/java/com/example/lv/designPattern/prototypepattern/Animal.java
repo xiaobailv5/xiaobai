@@ -7,7 +7,7 @@ package com.example.lv.designPattern.prototypepattern;
  * @description 动物
  * @date 2023/7/7 14:45:53
  */
-public abstract class Animal implements Cloneable{
+public abstract class Animal implements Cloneable {
 
     private String id;
     protected String type;

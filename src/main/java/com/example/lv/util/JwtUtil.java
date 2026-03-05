@@ -24,51 +24,52 @@ public class JwtUtil {
     /**
      * 有效期 1小时
      */
-    public static final Long JWT_TTL = 60*60*1000L;
+    public static final Long JWT_TTL = 60 * 60 * 1000L;
     /**
      * 密钥明文
      */
     public static final String JWT_KEY = "xiaobai";
 
-    public static String getUUID(){
-        String token = UUID.randomUUID().toString().replaceAll("-","");
+    public static String getUUID() {
+        String token = UUID.randomUUID().toString().replaceAll("-", "");
         return token;
     }
 
     /**
      * 生成jwt
-     * @param subject token中存放的数据(json)
+     *
+     * @param subject   token中存放的数据(json)
      * @param ttlMillis 有效期
      * @return
      */
-    public static String createJWT(String subject,Long ttlMillis){
-        JwtBuilder builder = getJwtBuilder(subject,ttlMillis,getUUID());
+    public static String createJWT(String subject, Long ttlMillis) {
+        JwtBuilder builder = getJwtBuilder(subject, ttlMillis, getUUID());
         return builder.compact();
     }
 
     /**
      * 默认时间 null
+     *
      * @param subject
      * @return
      */
-    public static String createJWT(String subject){
-        JwtBuilder builder = getJwtBuilder(subject,null,getUUID());
+    public static String createJWT(String subject) {
+        JwtBuilder builder = getJwtBuilder(subject, null, getUUID());
         return builder.compact();
     }
 
     /**
-     *
      * @param id
      * @param subject
      * @param ttlMillis
      * @return
      */
-    public static String createJWT(String id,String subject,Long ttlMillis){
-        JwtBuilder builder = getJwtBuilder(subject,ttlMillis,id);
+    public static String createJWT(String id, String subject, Long ttlMillis) {
+        JwtBuilder builder = getJwtBuilder(subject, ttlMillis, id);
         return builder.compact();
     }
+
     /**
-     *
      * @param subject
      * @param ttlMillis
      * @param uuid
@@ -79,10 +80,10 @@ public class JwtUtil {
         SecretKey secretKey = generalKey();
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
-        if(ObjectUtils.isEmpty(ttlMillis)){
+        if (ObjectUtils.isEmpty(ttlMillis)) {
             ttlMillis = JwtUtil.JWT_TTL;
         }
-        long expMillis = nowMillis+ttlMillis;
+        long expMillis = nowMillis + ttlMillis;
         Date expDate = new Date(expMillis);
         JwtBuilder builder = Jwts.builder()
                 //唯一id
@@ -99,15 +100,16 @@ public class JwtUtil {
 
     /**
      * 生成加密后的密钥
+     *
      * @return
      */
     private static SecretKey generalKey() {
         byte[] encodedKey = Base64.getDecoder().decode(JwtUtil.JWT_KEY);
-        SecretKey key = new SecretKeySpec(encodedKey,0,encodedKey.length,"AES");
+        SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
         return key;
     }
 
-    public static Claims parseJWT(String jwt){
+    public static Claims parseJWT(String jwt) {
         SecretKey secretKey = generalKey();
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
     }

@@ -5,7 +5,7 @@ package com.example.lv.controller.thread;
  * @package: com.example.lv.controller.thread
  * @className: ThreadLocalDamo
  * @author: dus
- * @description:  父子线程之间如何共享传递数据
+ * @description: 父子线程之间如何共享传递数据
  * @date: 2024/10/31 12:43
  * @version: 1.0
  */

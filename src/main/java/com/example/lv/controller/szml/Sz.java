@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 将字符串“[[1,5,6,7],6,7,3]”转换为数组，并去除重复元素；
- * @author gxjh2
  * @date 2024/10/29 20:31:02
- * @version 1.0
  */
 public class Sz {
 

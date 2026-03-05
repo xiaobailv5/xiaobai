@@ -12,7 +12,7 @@ package com.example.lv.controller.thread;
 public class StopThread {
 
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread( () -> {
+        Thread thread = new Thread(() -> {
             for (int i = 0; i < 1000000; i++) {
                 if (Thread.currentThread().isInterrupted() && i > 500000) {
                     break;

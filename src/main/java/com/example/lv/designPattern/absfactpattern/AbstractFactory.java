@@ -13,6 +13,7 @@ import com.example.lv.designPattern.factorymode.shapeFactory.Shape;
 public abstract class AbstractFactory {
     /**
      * 颜色
+     *
      * @param color
      * @return
      */
@@ -20,6 +21,7 @@ public abstract class AbstractFactory {
 
     /**
      * 形状
+     *
      * @param shape
      * @return
      */

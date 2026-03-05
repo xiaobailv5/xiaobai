@@ -12,10 +12,10 @@ import com.example.lv.util.Constant;
  */
 public class FactoryProducer {
 
-    public static AbstractFactory getFactory(String choice){
-        if(Constant.SHAPE.equalsIgnoreCase(choice)){
+    public static AbstractFactory getFactory(String choice) {
+        if (Constant.SHAPE.equalsIgnoreCase(choice)) {
             return new ShapeFactory2();
-        } else if(Constant.COLOR.equalsIgnoreCase(choice)){
+        } else if (Constant.COLOR.equalsIgnoreCase(choice)) {
             return new ColorFactory2();
         }
         return null;

@@ -10,11 +10,13 @@ package com.example.lv.designPattern.singletonpattern;
 public class Singleton {
 
     private static Singleton singleton;
-    private Singleton(){
+
+    private Singleton() {
 
     }
-    public static synchronized Singleton getInstance(){
-        if(singleton == null){
+
+    public static synchronized Singleton getInstance() {
+        if (singleton == null) {
             singleton = new Singleton();
         }
         return singleton;

@@ -23,6 +23,6 @@
     </settings>
     <plugins>
         <!-- 分页插件 -->
-        <plugin interceptor="com.github.pagehelper.PageInterceptor" />
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
     </plugins>
 </configuration>

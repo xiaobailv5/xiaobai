@@ -19,11 +19,11 @@ public class Meal {
 
     private List<Item> items = new ArrayList<Item>();
 
-    public void addItem(Item item){
+    public void addItem(Item item) {
         items.add(item);
     }
 
-    public float getCost(){
+    public float getCost() {
         float cost = 0.0f;
         for (Item item : items) {
             cost += item.price();
@@ -31,11 +31,11 @@ public class Meal {
         return cost;
     }
 
-    public void showItems(){
+    public void showItems() {
         for (Item item : items) {
-            LOGGER.info("Item : "+item.name());
-            LOGGER.info(", Packing : "+item.packing().pack());
-            LOGGER.info(", Price : "+item.price());
+            LOGGER.info("Item : " + item.name());
+            LOGGER.info(", Packing : " + item.packing().pack());
+            LOGGER.info(", Price : " + item.price());
         }
     }
 

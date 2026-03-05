@@ -10,11 +10,11 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 线程池状态监控
- * @author gxjh2
  * @date 2024/10/19 17:00:36
- * @version 1.0
  */
 public class VisiableThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 

@@ -14,6 +14,7 @@ public interface ILoginService {
 
     /**
      * 登录
+     *
      * @param request
      * @return
      */
@@ -21,6 +22,7 @@ public interface ILoginService {
 
     /**
      * 退出登录
+     *
      * @return
      */
     Result logOut();

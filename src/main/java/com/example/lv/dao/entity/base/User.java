@@ -53,7 +53,7 @@ public class User implements Serializable {
      */
     private String createBy;
     /**
-     *编辑用户人员账号
+     * 编辑用户人员账号
      */
     private String updateBy;
     /**

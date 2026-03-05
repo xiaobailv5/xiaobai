@@ -31,29 +31,31 @@ public class LoginUserController {
 
     /**
      * 登录接口
+     *
      * @param request
      * @return com.example.lv.bean.base.Result
      * @author gxjh2
      * @date 2024/10/25 16:54:58
-    */
+     */
     @PostMapping("/user/login")
     @I18nAnnotation(replaceKey = "username", returnType = "bean", name = "java.util.Map")
-    public Result login(@RequestBody LoginRequest request){
-        LOGGER.info("登录======开始"+request);
+    public Result login(@RequestBody LoginRequest request) {
+        LOGGER.info("登录======开始" + request);
         return loginService.login(request);
     }
 
     /**
      * 退出登录
+     *
      * @return
      */
     @PostMapping("/user/logOut")
-    public Result logOut(){
+    public Result logOut() {
 
         Result result;
         try {
             return loginService.logOut();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             result = ResultGenerator.getFailResult(e.getMessage());
         }

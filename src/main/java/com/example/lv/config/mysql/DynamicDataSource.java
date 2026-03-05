@@ -5,11 +5,11 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import java.util.Map;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 动态数据源切换
- * @author gxjh2
  * @date 2024/9/22 20:27:30
- * @version 1.0
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
@@ -18,6 +18,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
     /**
      * 决定当前线程使用哪个数据源
+     *
      * @return
      */
     @Override

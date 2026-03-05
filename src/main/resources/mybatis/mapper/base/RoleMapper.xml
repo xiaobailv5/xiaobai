@@ -3,7 +3,7 @@
 <mapper namespace="com.example.lv.dao.mapper.base.RoleDao">
 
     <resultMap id="baseRoleMap" type="com.example.lv.dao.entity.base.Role">
-        <id  column="role_id" jdbcType="INTEGER" property="roleId"/>
+        <id column="role_id" jdbcType="INTEGER" property="roleId"/>
         <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
         <result column="role_code" jdbcType="VARCHAR" property="roleCode"/>
         <result column="role_desc" jdbcType="VARCHAR" property="roleDesc"/>
@@ -17,17 +17,17 @@
 
     <select id="queryRole" resultMap="baseRoleMap">
         select r.role_id,
-               r.role_name,
-               r.role_code,
-               r.role_desc,
-               r.del_flag,
-               r.create_time,
-               r.update_time,
-               r.update_by,
-               r.create_by,
-               r.user_id
+        r.role_name,
+        r.role_code,
+        r.role_desc,
+        r.del_flag,
+        r.create_time,
+        r.update_time,
+        r.update_by,
+        r.create_by,
+        r.user_id
         from role r
-        where r.del_flag='0' and  r.user_id = #{userId}
+        where r.del_flag='0' and r.user_id = #{userId}
     </select>
 
 

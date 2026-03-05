@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 线程控制层
- * @author gxjh2
  * @date 2024/10/19 16:50:46
- * @version 1.0
  */
 @RestController
 @RequestMapping("/thread")
@@ -21,12 +21,11 @@ public class AsyncController {
     private AsyncService asyncService;
 
     @GetMapping("/async")
-    public void async(){
+    public void async() {
         asyncService.executeAsync();
         //同步任务
         asyncService.syncTasks();
     }
-
 
 
 }

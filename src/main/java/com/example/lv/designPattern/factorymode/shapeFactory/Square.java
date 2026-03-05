@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * @description
  * @date 2023/6/27 15:38:51
  */
-public class Square implements Shape{
+public class Square implements Shape {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Square.class);
 

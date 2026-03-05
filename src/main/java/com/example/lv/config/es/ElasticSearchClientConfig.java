@@ -39,8 +39,8 @@ public class ElasticSearchClientConfig {
 
     @Bean(destroyMethod = "close", name = "client")
     public RestHighLevelClient initRestClient() {
-        LOGGER.info("host=="+host+"port=="+port+"connTimeout=="+connTimeout+"socketTimeout"+socketTimeout+
-                "connectionRequestTimeout"+connectionRequestTimeout);
+        LOGGER.info("host==" + host + "port==" + port + "connTimeout==" + connTimeout + "socketTimeout" + socketTimeout +
+                "connectionRequestTimeout" + connectionRequestTimeout);
         RestClientBuilder builder = RestClient.builder(new HttpHost(host, port))
                 .setRequestConfigCallback(requestConfigBuilder -> requestConfigBuilder
                         .setConnectTimeout(connTimeout)
@@ -48,8 +48,6 @@ public class ElasticSearchClientConfig {
                         .setConnectionRequestTimeout(connectionRequestTimeout));
         return new RestHighLevelClient(builder);
     }
-
-
 
 
 }

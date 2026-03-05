@@ -41,7 +41,7 @@ public class LoginUserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userDao.findUserByUserName(username);
-        if (ObjectUtils.isEmpty(user)){
+        if (ObjectUtils.isEmpty(user)) {
             throw new RuntimeException("not found user");
         }
         //定义权限列表.
@@ -49,15 +49,15 @@ public class LoginUserDetailsServiceImpl implements UserDetailsService {
 
         Integer userId = user.getUserId();
         // 用户可以访问的资源名称（或者说用户所拥有的权限） 注意：必须"ROLE_"开头
-        if(ObjectUtils.isNotEmpty(userId)){
+        if (ObjectUtils.isNotEmpty(userId)) {
             List<Role> roles = roleDao.queryRole(userId);
-            if(CollectionUtils.isNotEmpty(roles)){
+            if (CollectionUtils.isNotEmpty(roles)) {
                 for (Role role : roles) {
                     authorities.add(new SimpleGrantedAuthority(role.getRoleCode()));
                     //查询权限列表
                     Integer roleId = role.getRoleId();
                     List<Permission> permissions = permissionDao.queryPermission(roleId);
-                    if (CollectionUtils.isNotEmpty(permissions)){
+                    if (CollectionUtils.isNotEmpty(permissions)) {
                         for (Permission permission : permissions) {
                             authorities.add(new SimpleGrantedAuthority(permission.getPerCode()));
                         }
@@ -69,6 +69,6 @@ public class LoginUserDetailsServiceImpl implements UserDetailsService {
 
         }
 
-        return new LoginUser(user,authorities);
+        return new LoginUser(user, authorities);
     }
 }

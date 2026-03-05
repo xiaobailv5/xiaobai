@@ -17,7 +17,7 @@ public class LoginUser implements UserDetails {
 
     private static final long serialVersionUID = -7841530689946331323L;
 
-    public LoginUser(User user,List<GrantedAuthority> authorities){
+    public LoginUser(User user, List<GrantedAuthority> authorities) {
         this.user = user;
         this.authorities = authorities;
     }

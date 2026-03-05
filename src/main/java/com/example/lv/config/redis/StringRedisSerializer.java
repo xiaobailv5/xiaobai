@@ -30,6 +30,7 @@ public class StringRedisSerializer<T> implements RedisSerializer<Object> {
         Assert.notNull(charset, "Charset must not be null!");
         this.charset = charset;
     }
+
     @Override
     public byte[] serialize(Object object) throws SerializationException {
         String string = JSON.toJSONString(object);

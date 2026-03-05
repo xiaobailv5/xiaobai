@@ -20,7 +20,7 @@ public class Result implements Serializable {
 
     private Object data;
 
-    private Map<String,Object> bean;
+    private Map<String, Object> bean;
 
     public int getCode() {
         return code;
@@ -38,17 +38,17 @@ public class Result implements Serializable {
         return data;
     }
 
-    public Result setCode(ResultCode resultCode){
+    public Result setCode(ResultCode resultCode) {
         this.code = resultCode.code;
         return this;
     }
 
-    public Result setMessage(String message){
+    public Result setMessage(String message) {
         this.message = message;
         return this;
     }
 
-    public Result setData(Object data){
+    public Result setData(Object data) {
         this.data = data;
         return this;
     }
@@ -61,7 +61,8 @@ public class Result implements Serializable {
         this.bean = bean;
         return this;
     }
-    public Result(){
+
+    public Result() {
 
     }
 

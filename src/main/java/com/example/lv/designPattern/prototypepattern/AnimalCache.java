@@ -27,14 +27,14 @@ public class AnimalCache {
     public static void loadCache() {
         Dog dog = new Dog();
         dog.setId("1");
-        animalMap.put(dog.getId(),dog);
+        animalMap.put(dog.getId(), dog);
 
         Cat cat = new Cat();
         cat.setId("2");
-        animalMap.put(cat.getId(),cat);
+        animalMap.put(cat.getId(), cat);
 
         Bird bird = new Bird();
         bird.setId("3");
-        animalMap.put(bird.getId(),bird);
+        animalMap.put(bird.getId(), bird);
     }
 }

@@ -36,11 +36,13 @@ public class SafeThreadStop {
             }
 
         }
+
         //停止线程
         public void stopThread() {
             running = false;
             interrupt();
         }
+
         //清理工作
         private void cleanUp() {
             System.out.println("Cleaning up resources");

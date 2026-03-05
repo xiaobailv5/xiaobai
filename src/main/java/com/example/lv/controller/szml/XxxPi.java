@@ -3,11 +3,11 @@ package com.example.lv.controller.szml;
 import java.util.Scanner;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description XXX匹配编程 正则表达式
- * @author gxjh2
  * @date 2024/10/29 20:19:28
- * @version 1.0
  */
 public class XxxPi {
 
@@ -19,7 +19,6 @@ public class XxxPi {
             boolean result = str.matches(match);
             System.out.println(result);
         }
-
 
 
     }

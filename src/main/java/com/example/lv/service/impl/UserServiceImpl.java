@@ -30,15 +30,16 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 查询用户列表
+     *
      * @param request
      * @return
      */
     @Override
     public List<User> getUserList(UserRequest request) {
         List<User> userList = userDao.getUserList(request);
-        if(CollectionUtils.isNotEmpty(userList)){
+        if (CollectionUtils.isNotEmpty(userList)) {
             //查询角色
-            for (User user:userList) {
+            for (User user : userList) {
                 Integer userId = user.getUserId();
                 List<Role> roles = roleDao.queryRole(userId);
                 user.setRoles(roles);
@@ -49,6 +50,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 查询用户列表总记录数
+     *
      * @param request
      * @return
      */
@@ -59,6 +61,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 查询用户信息
+     *
      * @param userId
      * @return
      */

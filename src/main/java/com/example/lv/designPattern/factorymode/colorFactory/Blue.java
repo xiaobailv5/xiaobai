@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * @description 蓝
  * @date 2023/6/28 09:30:55
  */
-public class Blue implements Color{
+public class Blue implements Color {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Blue.class);
 

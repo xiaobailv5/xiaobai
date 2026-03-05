@@ -15,10 +15,13 @@ import java.lang.annotation.*;
 public @interface OperationAnnotation {
     //内容
     String content() default "";
+
     //系统类型 (管理平台，App端)
     String sysType() default "0";
+
     //操作类型 0登录 1增加 2删除 3修改 4查询 5查看
     String opType() default "0";
+
     //功能名称
     String action() default "";
 }

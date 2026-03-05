@@ -7,7 +7,7 @@ package com.example.lv.designPattern.builderpattern;
  * @description 冷饮
  * @date 2023/6/28 14:51:23
  */
-public abstract class ColdDrink implements Item{
+public abstract class ColdDrink implements Item {
 
     @Override
     public Packing packing() {
@@ -16,6 +16,7 @@ public abstract class ColdDrink implements Item{
 
     /**
      * 价格
+     *
      * @return
      */
     @Override

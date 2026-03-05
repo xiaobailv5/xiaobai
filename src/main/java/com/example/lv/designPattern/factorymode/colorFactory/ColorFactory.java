@@ -15,15 +15,15 @@ public class ColorFactory {
     /**
      * 使用 getColor 方法获取颜色的对象
      */
-    public Color getColor(String colorType){
-        if(StringUtils.isEmpty(colorType)){
+    public Color getColor(String colorType) {
+        if (StringUtils.isEmpty(colorType)) {
             return null;
         }
-        if(Constant.RED.equalsIgnoreCase(colorType)){
+        if (Constant.RED.equalsIgnoreCase(colorType)) {
             return new Red();
-        } else if(Constant.GREEN.equalsIgnoreCase(colorType)){
+        } else if (Constant.GREEN.equalsIgnoreCase(colorType)) {
             return new Green();
-        } else if(Constant.BLUE.equalsIgnoreCase(colorType)){
+        } else if (Constant.BLUE.equalsIgnoreCase(colorType)) {
             return new Blue();
         }
         return null;

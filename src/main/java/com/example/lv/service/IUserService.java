@@ -16,6 +16,7 @@ public interface IUserService {
 
     /**
      * 查询用户列表
+     *
      * @param request
      * @return
      */
@@ -23,6 +24,7 @@ public interface IUserService {
 
     /**
      * 查询用户列表总条数
+     *
      * @param request
      * @return
      */
@@ -30,6 +32,7 @@ public interface IUserService {
 
     /**
      * 查询用户信息
+     *
      * @param userId
      * @return
      */

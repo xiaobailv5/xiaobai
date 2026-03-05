@@ -31,25 +31,28 @@ public class ResultGenerator {
                 .setMessage(DEFAULT_SUCCESS_MESSAGE)
                 .setData(data);
     }
+
     /**
      * 成功返回数据
      */
-    public static Result getSuccessResult(Object data, Map<String,Object> bean) {
+    public static Result getSuccessResult(Object data, Map<String, Object> bean) {
         return new Result()
                 .setCode(ResultCode.SUCCESS)
                 .setMessage(DEFAULT_SUCCESS_MESSAGE)
                 .setData(data)
                 .setBean(bean);
     }
+
     /**
      * 成功返回数据
      */
-    public static Result getSuccessBeanResult(Map<String,Object> bean) {
+    public static Result getSuccessBeanResult(Map<String, Object> bean) {
         return new Result()
                 .setCode(ResultCode.SUCCESS)
                 .setMessage(DEFAULT_SUCCESS_MESSAGE)
                 .setBean(bean);
     }
+
     /**
      * 失败
      */

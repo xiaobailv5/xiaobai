@@ -74,7 +74,7 @@ public class DateUtil {
      * 得到两个时间差
      *
      * @param start 开始时间
-     * @param end 结束时间
+     * @param end   结束时间
      * @return
      */
     public static long dateTogether(Date start, Date end) {
@@ -190,7 +190,7 @@ public class DateUtil {
     /**
      * 获取当前小时 ：2019-08-23 17
      *
-     * @return  2019-08-27 17
+     * @return 2019-08-27 17
      */
     public static String getCurrentHour() {
         GregorianCalendar calendar = new GregorianCalendar();
@@ -203,6 +203,7 @@ public class DateUtil {
 
     /**
      * 获取当前时间一个小时前
+     *
      * @return 2019-08-27 16
      */
     public static String getCurrentHourBefore() {
@@ -309,13 +310,14 @@ public class DateUtil {
 
 
     private static int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
+
     /**
      * 获取今年月份数据
      * 说明 有的需求前端需要根据月份查询每月数据，此时后台给前端返回今年共有多少月份
      *
      * @return [1, 2, 3, 4, 5, 6, 7, 8]
      */
-    public static List getMonthList(){
+    public static List getMonthList() {
         List list = new ArrayList();
         for (int i = 1; i <= month; i++) {
             list.add(i);
@@ -326,9 +328,10 @@ public class DateUtil {
     /**
      * 返回当前年度季度list
      * 本年度截止目前共三个季度，然后根据1,2,3分别查询相关起止时间
+     *
      * @return [1, 2, 3]
      */
-    public static List getQuartList(){
+    public static List getQuartList() {
         int quart = month / 3 + 1;
         List list = new ArrayList();
         for (int i = 1; i <= quart; i++) {
@@ -339,12 +342,13 @@ public class DateUtil {
 
     /**
      * 日期转字符串
+     *
      * @param date
      * @param format
      * @return java.lang.String
      * @author gxjh2
      * @date 2024/9/26 20:17:25
-    */
+     */
     public static String formateDate(Date date, String format) {
 
         SimpleDateFormat sdf = new SimpleDateFormat(format);

@@ -7,7 +7,7 @@ package com.example.lv.designPattern.builderpattern;
  * @description 可乐
  * @date 2023/6/28 14:56:20
  */
-public class Coke extends ColdDrink{
+public class Coke extends ColdDrink {
     @Override
     public String name() {
         return "Coke";

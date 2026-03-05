@@ -13,11 +13,11 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 异步线程配置类
- * @author gxjh2
  * @date 2024/10/19 15:50:36
- * @version 1.0
  */
 @Configuration
 @EnableAsync

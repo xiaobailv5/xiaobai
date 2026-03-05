@@ -56,13 +56,13 @@ public class JsonFileParser {
 
                 map.put("knowledgeId", jsonObject1.getString("knowledgeId"));
                 map.put("knowledgeName", jsonObject1.getString("knowledgeName"));
-                map.put("bossCode", jsonObject1.isNull("bossCode")?"":jsonObject1.getString("bossCode"));
-                map.put("bossName", jsonObject1.isNull("bossName")?"":jsonObject1.getString("bossName"));
+                map.put("bossCode", jsonObject1.isNull("bossCode") ? "" : jsonObject1.getString("bossCode"));
+                map.put("bossName", jsonObject1.isNull("bossName") ? "" : jsonObject1.getString("bossName"));
                 list.add(map);
 
             }
 
-             // 创建工作簿和工作表
+            // 创建工作簿和工作表
             Workbook workbook = new XSSFWorkbook();
             Sheet sheet = workbook.createSheet("sheet1");
 
@@ -91,7 +91,6 @@ public class JsonFileParser {
 
             // 关闭工作簿
             workbook.close();
-
 
 
         } catch (IOException e) {

@@ -13,11 +13,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
 /**
+ * @author gxjh2
+ * @version 1.0
  * @project xiaobai
  * @description 异步线程实现类
- * @author gxjh2
  * @date 2024/10/19 15:57:53
- * @version 1.0
  */
 @Service
 public class AsyncServiceImpl implements AsyncService {
@@ -110,7 +110,7 @@ public class AsyncServiceImpl implements AsyncService {
         }
         // 9 [Task-9001 ~ Task-10000]
         targetTaskList.add(blockSum - 1, taskList.subList((blockSum - 1) * blockSize, taskList.size()));
-        logger.info("start==========="+targetTaskList);
+        logger.info("start===========" + targetTaskList);
         batchSave(targetTaskList);
 
     }
@@ -143,6 +143,7 @@ public class AsyncServiceImpl implements AsyncService {
 
     /**
      * 异步
+     *
      * @param tasks
      * @param countDownLatch
      */

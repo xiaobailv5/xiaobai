@@ -51,8 +51,9 @@ public class SecurityConfig {
         auth.userDetailsService(loginUserDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         // 使用BCrypt加密密码
         return new BCryptPasswordEncoder();
     }
@@ -92,13 +93,13 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin(formLogin ->
-                    formLogin
-                        .loginPage("/login") // 指定登录页面URL
-                        .permitAll() // 允许所有人访问登录页面
+                        formLogin
+                                .loginPage("/login") // 指定登录页面URL
+                                .permitAll() // 允许所有人访问登录页面
                 )
                 .logout(logout ->
                         logout
-                            .permitAll() // 允许所有人访问注销页面
+                                .permitAll() // 允许所有人访问注销页面
                 )
                 .httpBasic().and()
                 .csrf()
@@ -115,7 +116,6 @@ public class SecurityConfig {
 
         return httpSecurity.build();
     }
-
 
 
 }

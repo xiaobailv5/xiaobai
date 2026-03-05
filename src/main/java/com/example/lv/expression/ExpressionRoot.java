@@ -18,15 +18,15 @@ import java.util.Collection;
 @Component("ex")
 public class ExpressionRoot {
 
-    public boolean hasAuthority(String authority){
+    public boolean hasAuthority(String authority) {
         //获取当前用户的权限
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         Collection<? extends GrantedAuthority> authorities = loginUser.getAuthorities();
         //判断用户权限集合中是否存在authority
-        for (GrantedAuthority grantedAuthority: authorities) {
+        for (GrantedAuthority grantedAuthority : authorities) {
             String auth = grantedAuthority.getAuthority();
-            if(auth.equals(authority)){
+            if (auth.equals(authority)) {
                 return true;
             }
         }

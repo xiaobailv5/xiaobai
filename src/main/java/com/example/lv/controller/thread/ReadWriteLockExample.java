@@ -29,6 +29,7 @@ public class ReadWriteLockExample {
             lock.readLock().unlock();
         }
     }
+
     //写入数据
     public void write(String key, String value) {
         lock.writeLock().lock();
@@ -39,10 +40,11 @@ public class ReadWriteLockExample {
             lock.writeLock().unlock();
         }
     }
-    public static void main(String[] args) throws InterruptedException{
+
+    public static void main(String[] args) throws InterruptedException {
         ReadWriteLockExample example = new ReadWriteLockExample();
         //一个线程写入数据
-        Thread writerThread =  new Thread(() -> {
+        Thread writerThread = new Thread(() -> {
             example.write("key", "value");
             System.out.println("WriterThread has finished writing.");
         }, "WriterThread");
@@ -69,7 +71,6 @@ public class ReadWriteLockExample {
         writerThread.start();
         readerThread1.start();
         readerThread2.start();
-
 
 
     }

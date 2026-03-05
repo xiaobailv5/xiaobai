@@ -17,10 +17,11 @@ import javax.sql.DataSource;
 
 /**
  * 主数据源配置（Mysql）
+ *
  * @author Administrator
  */
 @Configuration
-@MapperScan(basePackages ="com.example.lv.dao.mapper.base", sqlSessionFactoryRef = "baseSqlSessionFactory")
+@MapperScan(basePackages = "com.example.lv.dao.mapper.base", sqlSessionFactoryRef = "baseSqlSessionFactory")
 public class MybatisBaseConfig {
 
     @Primary

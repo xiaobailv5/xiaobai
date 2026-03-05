@@ -15,6 +15,7 @@ import java.util.List;
 public class LoopTask {
 
     private List<ChildTask> childTasks;
+
     public void initLoopTask() {
         childTasks = new ArrayList<ChildTask>();
         childTasks.add(new ChildTask("childTask1"));
@@ -28,6 +29,7 @@ public class LoopTask {
             }).start();
         }
     }
+
     public void shutdownLoopTask() {
         if (!CollectionUtils.isEmpty(childTasks)) {
             for (ChildTask childTask : childTasks) {
@@ -35,7 +37,8 @@ public class LoopTask {
             }
         }
     }
-    public static void main(String args[]) throws Exception{
+
+    public static void main(String args[]) throws Exception {
         LoopTask loopTask = new LoopTask();
         loopTask.initLoopTask();
         Thread.sleep(5000L);

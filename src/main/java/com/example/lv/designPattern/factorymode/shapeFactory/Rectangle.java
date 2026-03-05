@@ -10,8 +10,9 @@ import org.slf4j.LoggerFactory;
  * @description
  * @date 2023/6/26 17:47:29
  */
-public class Rectangle implements Shape{
+public class Rectangle implements Shape {
     private static final Logger LOGGER = LoggerFactory.getLogger(Rectangle.class);
+
     @Override
     public void draw() {
         LOGGER.info("Inside Rectangle::draw() method.");
